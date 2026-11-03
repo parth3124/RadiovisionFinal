@@ -1,0 +1,32 @@
+{
+  "kind": "overhead",
+  "label": "walk_free",
+  "condition": "walk_free",
+  "zone": null,
+  "session": "grid01",
+  "take": 13,
+  "created": "2026-11-01T02:48:49",
+  "duration_s": 15.02,
+  "links": [
+    "rx1"
+  ],
+  "csi_samples": {
+    "rx1": 875
+  },
+  "csi_rate_hz": {
+    "rx1": 58.3
+  },
+  "camera_frames": 451,
+  "camera_fps": 30.0,
+  "visible_fraction": 1.0,
+  "calibration_sha": "54f84c0fa7",
+  "area": [
+    0.9,
+    0.85
+  ],
+  "zones": [
+    3,
+    1
+  ],
+  "time_base": "time.monotonic() on the Mac, shared by CSI and camera"
+}
