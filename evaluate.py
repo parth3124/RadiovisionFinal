@@ -96,7 +96,8 @@ def load_model(path, device):
     import torch
     from model import CSIGestureNet
     ck = torch.load(path, map_location=device, weights_only=False)
-    m = CSIGestureNet(ck["n_sub"]).to(device)
+    m = CSIGestureNet(ck["n_sub"], ch=ck.get("ch", 128), hidden=ck.get("hidden", 64),
+                      n_domains=ck.get("n_domains", 0)).to(device)
     m.load_state_dict(ck["state_dict"])
     return m.eval(), ck
 
@@ -121,6 +122,7 @@ def main():
     device = C.pick_device()
     model, ck = load_model(a.model, device)
     recs = D.load_recordings(a.data, ck["window_sec"], ck["stride_sec"])
+    D.apply_norm(recs, ck.get("norm", "global"))
     ids = [i for i, r in enumerate(recs) if (not a.sessions or r.session in a.sessions) and r.n_sub == ck["n_sub"]]
     trained_on = set(ck.get("train_recordings", []))
     overlap = [recs[i].rec_id for i in ids if recs[i].rec_id in trained_on]

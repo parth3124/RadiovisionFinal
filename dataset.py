@@ -68,6 +68,8 @@ class Recording:
         idx = np.clip(np.searchsorted(t, self.grid, side="right") - 1, 0, len(t) - 1)
         self.valid = (self.grid - t[idx] <= C.MAX_GAP_SEC) & (self.grid >= t[0])
         self.G = amp[idx].astype(np.float16)                     # [M, S]
+        self.norm_mode = "global"                                # set by apply_norm()
+        self.raw_mean = self.G[self.valid].astype(np.float32).mean(0) if self.valid.any() else np.zeros(self.n_sub, np.float32)
 
         # ---- windows ----
         bad = np.concatenate([[0], np.cumsum(~self.valid)])
@@ -154,7 +156,7 @@ def summarize(recs):
 # ---------------------------------------------------------------------------
 # Splits (by session, falling back to by recording) - never split one recording
 # ---------------------------------------------------------------------------
-def split(recs, test_sessions=None, seed=0):
+def split(recs, test_sessions=None, seed=0, val_mode="recording"):
     """-> (train_ids, val_ids, test_ids, description). val = 1 recording per class from
     the non-test data, used only for early stopping / model selection."""
     rng = np.random.default_rng(seed)
@@ -175,11 +177,22 @@ def split(recs, test_sessions=None, seed=0):
                 test += ids[:max(1, round(0.2 * len(ids)))]
         how = "only one session: test = ~20% of the recordings of each class"
     rest = [i for i in range(len(recs)) if i not in set(test)]
+    rest_sessions = sorted({recs[i].session for i in rest})
     val = []
-    for c in range(len(C.CLASSES)):
-        ids = [i for i in rest if recs[i].label == c]
-        if len(ids) >= 2:
-            val.append(ids[rng.integers(len(ids))])
+    if val_mode == "session" and len(rest_sessions) >= 2:
+        # validate on a WHOLE session the model does not train on (newest remaining one), so that
+        # early stopping / model selection rewards cross-session transfer, not session memorization
+        vs = max(rest_sessions, key=lambda s: max(recs[i].meta.get("created", "") for i in rest if recs[i].session == s))
+        val = [i for i in rest if recs[i].session == vs]
+        how += f"; val = whole session '{vs}'"
+    elif val_mode == "none":
+        how += "; no validation set (fixed epochs, last epoch kept)"
+    else:
+        for c in range(len(C.CLASSES)):
+            ids = [i for i in rest if recs[i].label == c]
+            if len(ids) >= 2:
+                val.append(ids[rng.integers(len(ids))])
+        how += "; val = 1 recording/class from the SAME sessions as training"
     train = [i for i in rest if i not in set(val)]
     return train, val, test, how
 
@@ -195,13 +208,17 @@ def items_of(recs, ids):
 
 def norm_stats(recs, ids):
     """Per-subcarrier mean/std from training recordings only; drop near-empty (null) subcarriers."""
+    if recs[ids[0]].norm_mode != "global":      # inputs are already normalized by apply_norm()
+        rm = np.mean([recs[i].raw_mean for i in ids], 0)
+        S = len(rm)
+        return np.zeros(S, np.float32), np.ones(S, np.float32), rm > 0.05 * np.median(rm)
     A = np.concatenate([recs[i].G[recs[i].valid].astype(np.float32) for i in ids])
     mu, sd = A.mean(0), A.std(0)
     keep = mu > 0.05 * np.median(mu)
     return mu, sd + 1.0, keep
 
 
-def make_batch(recs, items, augment=False, rng=None):
+def make_batch(recs, items, augment=False, rng=None, aug_offset=0.0):
     """-> x [B,T,S] float32, y [B] int64, hm [B,14,32,32] float32, jmask [B,14] float32, has_hm [B] float32"""
     X, Y, H, JM, HH = [], [], [], [], []
     for i, k in items:
@@ -211,7 +228,52 @@ def make_batch(recs, items, augment=False, rng=None):
         H.append(r.hm[k]); JM.append(r.jmask[k]); HH.append(r.has_hm[k])
     x = np.stack(X).astype(np.float32)
     if augment:
-        x *= 1 + 0.05 * rng.standard_normal((len(x), 1, 1)).astype(np.float32)   # gain change
-        x += 0.5 * rng.standard_normal(x.shape).astype(np.float32)               # amplitude noise
+        if recs[items[0][0]].norm_mode == "global":                  # raw amplitude units
+            x *= 1 + 0.05 * rng.standard_normal((len(x), 1, 1)).astype(np.float32)   # gain change
+            x += 0.5 * rng.standard_normal(x.shape).astype(np.float32)               # amplitude noise
+        else:                                                        # z-scored units (std ~ 1)
+            x += 0.05 * rng.standard_normal(x.shape).astype(np.float32)
+            if aug_offset > 0:   # constant per-window, per-subcarrier shift = residual static-channel change
+                x += aug_offset * rng.standard_normal((len(x), 1, x.shape[2])).astype(np.float32)
     return (x, np.array(Y, np.int64), np.stack(H).astype(np.float32) / 255.0,
             np.stack(JM).astype(np.float32), np.array(HH, np.float32))
+
+
+# ---------------------------------------------------------------------------
+# Session-invariant input normalization
+# ---------------------------------------------------------------------------
+def apply_norm(recs, mode):
+    """In-place normalization of every recording's CSI grid G. Uses NO labels.
+
+    global  : unchanged. Raw amplitude; the model z-scores with training-set statistics (old behaviour).
+    packet  : log(1 + amplitude) minus that packet's mean over live subcarriers. Removes the overall
+              gain (AGC, TX-RX distance, path loss) of each packet. Deployable sample by sample.
+    session : packet, then per-subcarrier z-score with statistics pooled over ALL recordings of the same
+              session (all classes together). Removes the static multipath fingerprint of one TX/RX
+              placement, which is what separates sessions, while keeping differences between gestures
+              inside the session. Needs a short unlabeled calibration at a new placement.
+    Note: per-RECORDING normalization is deliberately not offered: a gesture is held for the whole
+    recording, so subtracting the recording mean would delete the signal."""
+    if mode not in ("global", "packet", "session"):
+        raise ValueError(mode)
+    for r in recs:
+        r.norm_mode = mode
+    if mode == "global":
+        return recs
+    rm = np.mean([r.raw_mean for r in recs], 0)
+    live = rm > 0.05 * np.median(rm)                    # structural null subcarriers (same hardware everywhere)
+    for r in recs:
+        L = np.log1p(r.G.astype(np.float32))
+        L -= L[:, live].mean(1, keepdims=True)
+        L[:, ~live] = 0
+        r.G = L.astype(np.float16)
+    if mode == "session":
+        by = defaultdict(list)
+        for r in recs:
+            by[r.session].append(r)
+        for sess, rs in by.items():
+            A = np.concatenate([r.G[r.valid].astype(np.float32) for r in rs])
+            mu, sd = A.mean(0), A.std(0) + 1e-2
+            for r in rs:
+                r.G = (((r.G.astype(np.float32) - mu) / sd) * live).astype(np.float16)
+    return recs

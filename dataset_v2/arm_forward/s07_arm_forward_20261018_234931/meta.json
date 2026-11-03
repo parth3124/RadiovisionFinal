@@ -1,0 +1,28 @@
+{
+  "gesture": "arm_forward",
+  "label": 4,
+  "classes": [
+    "idle",
+    "hands_crossed",
+    "hands_up",
+    "arm_side",
+    "arm_forward"
+  ],
+  "session": "s07",
+  "subject": "me",
+  "recording_id": "s07_arm_forward_20261018_234931",
+  "created": "2026-10-18T23:49:51",
+  "duration_s": 20.03,
+  "csi_samples": 1167,
+  "csi_rate_hz": 58.3,
+  "csi_subcarriers": 192,
+  "csi_malformed_total": 7,
+  "camera_frames": 283,
+  "pose_frames": 283,
+  "camera": 0,
+  "teacher": "full",
+  "serial_port": "/dev/cu.usbmodem1101",
+  "csi_first_t": 1196507.399354125,
+  "csi_last_t": 1196527.431079875,
+  "time_base": "time.monotonic() on the Mac, shared by CSI and camera"
+}

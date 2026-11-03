@@ -40,6 +40,17 @@ class SharedEncoder(nn.Module):
         return torch.cat([h.mean(1), h.amax(1)], 1)
 
 
+class _GradReverse(torch.autograd.Function):
+    @staticmethod
+    def forward(ctx, x, alpha):
+        ctx.alpha = alpha
+        return x.view_as(x)
+
+    @staticmethod
+    def backward(ctx, g):
+        return -ctx.alpha * g, None
+
+
 class GestureHead(nn.Module):
     def __init__(self, d, n_classes, dropout=0.3):
         super().__init__()
@@ -62,24 +73,31 @@ class HeatmapHead(nn.Module):
 
 
 class CSIGestureNet(nn.Module):
-    def __init__(self, n_sub, n_classes=5):
+    def __init__(self, n_sub, n_classes=5, ch=128, hidden=64, n_domains=0):
         super().__init__()
         self.register_buffer("mu", torch.zeros(n_sub))
         self.register_buffer("sd", torch.ones(n_sub))
         self.register_buffer("keep", torch.ones(n_sub))
-        self.encoder = SharedEncoder(n_sub)
+        self.encoder = SharedEncoder(n_sub, ch=ch, hidden=hidden)
         self.gesture_head = GestureHead(self.encoder.out_dim, n_classes)
         self.heatmap_head = HeatmapHead(self.encoder.out_dim)
+        # optional session discriminator, trained through a gradient-reversal layer (training only)
+        self.domain_head = (nn.Sequential(nn.Linear(self.encoder.out_dim, 64), nn.GELU(), nn.Linear(64, n_domains))
+                            if n_domains > 1 else None)
 
     def set_normalization(self, mu, sd, keep):
         self.mu.copy_(torch.as_tensor(mu)); self.sd.copy_(torch.as_tensor(sd))
         self.keep.copy_(torch.as_tensor(keep, dtype=torch.float32))
 
-    def forward(self, x, with_heatmaps=True):
+    def forward(self, x, with_heatmaps=True, return_z=False):
         x = (x - self.mu) / self.sd * self.keep
         z = self.encoder(x)
         logits = self.gesture_head(z)
-        return (logits, self.heatmap_head(z)) if with_heatmaps else (logits, None)
+        out = (logits, self.heatmap_head(z)) if with_heatmaps else (logits, None)
+        return out + (z,) if return_z else out
+
+    def domain_logits(self, z, alpha):
+        return self.domain_head(_GradReverse.apply(z, alpha))
 
 
 def heatmap_loss(hm_logits, target, jmask, has_hm, pos_weight=20.0):

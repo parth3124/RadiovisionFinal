@@ -78,7 +78,9 @@ def train_one(recs, tr, va, te, lam, seed, a, device, out_dir):
     os.makedirs(out_dir, exist_ok=True)
     torch.manual_seed(seed); rng = np.random.default_rng(seed)
     S = recs[0].n_sub
-    model = CSIGestureNet(S, len(C.CLASSES)).to(device)
+    sess_ids = {s_: k for k, s_ in enumerate(sorted({recs[i].session for i in tr}))}
+    n_dom = len(sess_ids) if a.adv > 0 else 0
+    model = CSIGestureNet(S, len(C.CLASSES), ch=a.ch, hidden=a.hidden, n_domains=n_dom).to(device)
     mu, sd, keep = D.norm_stats(recs, tr)
     model.set_normalization(mu, sd, keep)
 
@@ -101,9 +103,9 @@ def train_one(recs, tr, va, te, lam, seed, a, device, out_dir):
         sg = sh = st = 0.0; nb = 0
         for b in range(0, len(perm), a.batch):
             items = [tr_items[j] for j in perm[b:b + a.batch]]
-            x, y, hm, jm, hh = D.make_batch(recs, items, augment=True, rng=rng)
+            x, y, hm, jm, hh = D.make_batch(recs, items, augment=True, rng=rng, aug_offset=a.aug_offset)
             x = torch.from_numpy(x).to(device); y = torch.from_numpy(y).to(device)
-            logits, hml = model(x, with_heatmaps=lam > 0)
+            logits, hml, z = model(x, with_heatmaps=lam > 0, return_z=True)
             lg = F.cross_entropy(logits, y, weight=class_w)
             if lam > 0:
                 lh = heatmap_loss(hml, torch.from_numpy(hm).to(device), torch.from_numpy(jm).to(device),
@@ -111,6 +113,11 @@ def train_one(recs, tr, va, te, lam, seed, a, device, out_dir):
             else:
                 lh = torch.zeros((), device=device)        # baseline: heatmap head gets no gradient
             loss = lg + lam * lh
+            if n_dom:   # adversarial: the discriminator tries to name the session, the encoder to hide it
+                prog = (ep - 1) / max(a.epochs - 1, 1)
+                alpha = a.adv * (2 / (1 + np.exp(-10 * prog)) - 1)
+                dom = torch.tensor([sess_ids[recs[i].session] for i, _ in items], device=device)
+                loss = loss + F.cross_entropy(model.domain_logits(z, alpha), dom)
             opt.zero_grad(); loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0); opt.step()
             sg += lg.item(); sh += lh.item(); st += loss.item(); nb += 1
@@ -123,7 +130,9 @@ def train_one(recs, tr, va, te, lam, seed, a, device, out_dir):
         hist.append(h)
         score = vm["macro_f1"] - 1e-3 * vg                   # tie-break on loss
         flag = ""
-        if score > best:
+        if not va:                                           # no validation set: keep the last epoch
+            best_state = {k: v.detach().clone() for k, v in model.state_dict().items()}
+        elif score > best:
             best, bad, flag = score, 0, " *"
             best_state = {k: v.detach().clone() for k, v in model.state_dict().items()}
         else:
@@ -141,6 +150,7 @@ def train_one(recs, tr, va, te, lam, seed, a, device, out_dir):
     tm["heatmap_joint_error"] = jerr
     tm["epochs_trained"] = len(hist)
     torch.save({"state_dict": model.state_dict(), "n_sub": S, "classes": C.CLASSES,
+                "norm": a.norm, "ch": a.ch, "hidden": a.hidden, "n_domains": n_dom, "adv": a.adv,
                 "window_sec": a.window_sec, "stride_sec": a.stride_sec, "fs": C.CSI_FS,
                 "lambda_heatmap": lam, "seed": seed,
                 "train_recordings": [recs[i].rec_id for i in tr + va],
@@ -164,6 +174,15 @@ def main():
     ap.add_argument("--seeds", type=int, nargs="+", default=[0])
     ap.add_argument("--cv", action="store_true", help="leave-one-session-out cross-validation")
     ap.add_argument("--test-sessions", nargs="*")
+    ap.add_argument("--norm", choices=["global", "packet", "session"], default="global",
+                    help="input normalization (see dataset.apply_norm); global = old behaviour")
+    ap.add_argument("--val-mode", dest="val_mode", choices=["recording", "session", "none"], default="recording",
+                    help="recording = old (same-session val); session = whole held-out training session; none = fixed epochs")
+    ap.add_argument("--adv", type=float, default=0.0, help="gradient-reversal strength for session-adversarial training (0 = off)")
+    ap.add_argument("--aug-offset", dest="aug_offset", type=float, default=0.0,
+                    help="std of random per-subcarrier offset augmentation (normalized modes only)")
+    ap.add_argument("--ch", type=int, default=128, help="encoder channels (multiple of 8)")
+    ap.add_argument("--hidden", type=int, default=64, help="BiLSTM hidden size")
     ap.add_argument("--window_sec", type=float, default=C.DEFAULT_WINDOW_SEC)
     ap.add_argument("--stride_sec", type=float, default=0.25)
     ap.add_argument("--epochs", type=int, default=60)
@@ -180,6 +199,8 @@ def main():
     print(f"loading {a.data}/ (window {a.window_sec}s = {int(a.window_sec * C.CSI_FS)} samples, "
           f"stride {a.stride_sec}s)")
     recs = D.load_recordings(a.data, a.window_sec, a.stride_sec)
+    D.apply_norm(recs, a.norm)
+    print(f"input normalization: {a.norm}")
     device = C.pick_device()
     print(f"device: {device}\n")
 
@@ -191,11 +212,11 @@ def main():
         splits = []
         for test in folds:
             sess = recs[test[0]].session
-            tr, va, te, _ = D.split(recs, test_sessions=[sess])
+            tr, va, te, _ = D.split(recs, test_sessions=[sess], val_mode=a.val_mode)
             splits.append((f"fold_{sess}", tr, va, te))
         print(f"leave-one-session-out: {len(splits)} folds")
     else:
-        tr, va, te, how = D.split(recs, a.test_sessions)
+        tr, va, te, how = D.split(recs, a.test_sessions, val_mode=a.val_mode)
         splits = [("", tr, va, te)]
         print(f"split: {how}")
         print(f"  train {len(tr)} recordings, val {len(va)} (early stopping), test {len(te)}")

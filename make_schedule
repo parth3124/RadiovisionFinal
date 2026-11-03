@@ -1,0 +1,43 @@
+"""
+make_schedule.py - print a SHUFFLED recording order for one session so that gesture class is not confounded
+with time (the old sessions were recorded in class blocks: all idle, then all hands_crossed, ...).
+
+    python make_schedule.py --reps 8 --session s06
+Rules: every gesture appears --reps times; no gesture twice in a row; reproducible with --seed.
+Use the collector as before; before each recording press the key for the gesture on the list
+(1 idle, 2 hands_crossed, 3 hands_up, 4 arm_side, 5 arm_forward), then SPACE.
+"""
+import argparse, random
+
+CLASSES = ["idle", "hands_crossed", "hands_up", "arm_side", "arm_forward"]
+
+
+def make(reps, rng):
+    while True:
+        seq = [c for c in range(5) for _ in range(reps)]
+        rng.shuffle(seq)
+        for _ in range(2000):                       # repair immediate repeats by swapping
+            bad = [i for i in range(1, len(seq)) if seq[i] == seq[i - 1]]
+            if not bad:
+                return seq
+            i = bad[0]; j = rng.randrange(len(seq)); seq[i], seq[j] = seq[j], seq[i]
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--reps", type=int, default=8)
+    ap.add_argument("--session", default="s06")
+    ap.add_argument("--seed", type=int, default=None)
+    a = ap.parse_args()
+    seq = make(a.reps, random.Random(a.seed))
+    lines = [f"session {a.session}: {len(seq)} recordings, {a.reps} per gesture, shuffled"]
+    for n, c in enumerate(seq, 1):
+        lines.append(f"{n:3d}.  key {c + 1}   {CLASSES[c]}")
+    txt = "\n".join(lines)
+    print(txt)
+    open(f"schedule_{a.session}.txt", "w").write(txt + "\n")
+    print(f"\nsaved schedule_{a.session}.txt")
+
+
+if __name__ == "__main__":
+    main()
