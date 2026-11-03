@@ -1,0 +1,627 @@
+{
+ "r02/empty/csi_link.npz": {
+  "schema": {
+   "n": 585,
+   "dtypes": {
+    "host_t": "float64",
+    "seq": "uint32",
+    "ts_us": "uint32",
+    "rssi": "int8",
+    "csi": "int8",
+    "csi_len": "int16"
+   },
+   "csi_shape": [
+    585,
+    384
+   ],
+   "pad_nonzero_packets": 0,
+   "len_counts": {
+    "256": 30,
+    "384": 555
+   },
+   "len_changes": 56,
+   "most_common_len": 384,
+   "dropped_by_common_len_filter": 30,
+   "odd_or_nonblock_len": [],
+   "meta_samples": 585,
+   "meta_samples_match": true,
+   "meta_malformed_total": 3,
+   "meta_duration_s": 10.01
+  },
+  "timing": {
+   "host_dups": 0,
+   "host_backwards": 0,
+   "host_dt_ms": [
+    13.24,
+    17.26,
+    19.56,
+    38.08
+   ],
+   "host_span_s": 9.992,
+   "ts_reorder_or_dup": 0,
+   "ts_dt_ms": [
+    10.76,
+    16.41,
+    27.48,
+    34.72
+   ],
+   "ts_span_s": 9.954,
+   "rate_host_hz": 58.4,
+   "rate_ts_hz": 58.7,
+   "drift_ppm_host_vs_ts": -62.0,
+   "host_minus_ts_residual_ms": {
+    "std": 20.1,
+    "p50": 46.73,
+    "p95": 75.54,
+    "max": 93.31
+   },
+   "residual_first1s_vs_last1s_ms": [
+    20.4,
+    47.59
+   ],
+   "ts_dt_p95_over_p50": 1.67
+  },
+  "seq": {
+   "seq_first": 291284,
+   "seq_last": 291978,
+   "seq_nonincreasing": 0,
+   "gap_events": 110,
+   "missing": 110,
+   "loss_pct": 15.8,
+   "max_burst": 1,
+   "burst_hist": {
+    "1": 110
+   },
+   "offered_rate_hz": 69.6
+  },
+  "rssi": {
+   "dtype": "int8",
+   "min": -52,
+   "max": -48,
+   "mean": -50.91,
+   "std": 0.72,
+   "n_distinct": 4,
+   "by_len": {
+    "256": -48.0,
+    "384": -51.07
+   }
+  },
+  "blocks": {
+   "256": {
+    "n": 30,
+    "analysed": true,
+    "signature": "256:[0-5,32,59-63]|[0-3,32,61-63]",
+    "blocks": [
+     {
+      "block": 0,
+      "null_subcarriers": "0-5,32,59-63",
+      "n_valid": 52,
+      "mean_amp": 11.55,
+      "saturated_pct": 0.0,
+      "roughness_aligned": 0.95,
+      "roughness_shifted_by_1": 1.184,
+      "packet_gain_sd_log": 0.061,
+      "adj_step_rad_circ_mean": -0.007,
+      "adj_step_across_packets_sd": 0.003,
+      "adj_step_within_packet_R_median": 0.995,
+      "packet_mean_phase_R": 0.103,
+      "subcarrier_phase_R_median": 0.103
+     },
+     {
+      "block": 1,
+      "null_subcarriers": "0-3,32,61-63",
+      "n_valid": 56,
+      "mean_amp": 24.85,
+      "saturated_pct": 0.0,
+      "roughness_aligned": 1.291,
+      "roughness_shifted_by_1": 2.052,
+      "packet_gain_sd_log": 0.28,
+      "adj_step_rad_circ_mean": -0.0106,
+      "adj_step_across_packets_sd": 0.004,
+      "adj_step_within_packet_R_median": 0.994,
+      "packet_mean_phase_R": 0.166,
+      "subcarrier_phase_R_median": 0.166
+     }
+    ],
+    "profile_corr_between_blocks": {
+     "b0_b1": 0.999
+    }
+   },
+   "384": {
+    "n": 555,
+    "analysed": true,
+    "signature": "384:[0-5,32,59-63]|[0-1,59-63]|[0-5,63]",
+    "blocks": [
+     {
+      "block": 0,
+      "null_subcarriers": "0-5,32,59-63",
+      "n_valid": 52,
+      "mean_amp": 8.03,
+      "saturated_pct": 0.0,
+      "roughness_aligned": 0.568,
+      "roughness_shifted_by_1": 0.773,
+      "packet_gain_sd_log": 0.066,
+      "adj_step_rad_circ_mean": -0.0082,
+      "adj_step_across_packets_sd": 0.003,
+      "adj_step_within_packet_R_median": 0.996,
+      "packet_mean_phase_R": 0.037,
+      "subcarrier_phase_R_median": 0.038
+     },
+     {
+      "block": 1,
+      "null_subcarriers": "0-1,59-63",
+      "n_valid": 57,
+      "mean_amp": 51.52,
+      "saturated_pct": 0.0,
+      "roughness_aligned": 2.779,
+      "roughness_shifted_by_1": 3.626,
+      "packet_gain_sd_log": 0.116,
+      "adj_step_rad_circ_mean": -0.0091,
+      "adj_step_across_packets_sd": 0.005,
+      "adj_step_within_packet_R_median": 0.994,
+      "packet_mean_phase_R": 0.009,
+      "subcarrier_phase_R_median": 0.009
+     },
+     {
+      "block": 2,
+      "null_subcarriers": "0-5,63",
+      "n_valid": 57,
+      "mean_amp": 41.61,
+      "saturated_pct": 0.001,
+      "roughness_aligned": 2.525,
+      "roughness_shifted_by_1": 3.281,
+      "packet_gain_sd_log": 0.136,
+      "adj_step_rad_circ_mean": -0.0086,
+      "adj_step_across_packets_sd": 0.004,
+      "adj_step_within_packet_R_median": 0.994,
+      "packet_mean_phase_R": 0.014,
+      "subcarrier_phase_R_median": 0.016
+     }
+    ],
+    "profile_corr_between_blocks": {
+     "b0_b1": -0.947,
+     "b0_b2": 0.998,
+     "b1_b2": -0.931
+    }
+   }
+  },
+  "flags": [
+   "MIXED_TYPES: {256: '5%', 384: '95%'} - layouts differ (see block table)",
+   "COMMON_LEN_FILTER: existing pipeline drops 30 packets (5.1%) by keeping only csi_len=384",
+   "SEQ_LOSS: 15.8% (110 records never stored; max burst 1)",
+   "HOST_CLOCK: host_t departs from the radio clock (p95 75.54 ms): use ts_us for temporal/spectral work",
+   "IRREGULAR_SAMPLING: irregular sampling (ts_us dt p95/p50 = 1.67): resample on ts_us before FFT/Doppler",
+   "LOW_RATE: effective rate 58.7 Hz (Nyquist 29 Hz)",
+   "PHASE_OFFSET_RANDOM: len 256 block 0: raw per-packet phase offset is not stable (R=0.103) -> sanitisation needed",
+   "PHASE_OFFSET_RANDOM: len 256 block 1: raw per-packet phase offset is not stable (R=0.166) -> sanitisation needed",
+   "PHASE_OFFSET_RANDOM: len 384 block 0: raw per-packet phase offset is not stable (R=0.037) -> sanitisation needed",
+   "PHASE_OFFSET_RANDOM: len 384 block 1: raw per-packet phase offset is not stable (R=0.009) -> sanitisation needed",
+   "PHASE_OFFSET_RANDOM: len 384 block 2: raw per-packet phase offset is not stable (R=0.014) -> sanitisation needed"
+  ]
+ },
+ "r02/obj_Z1/csi_link.npz": {
+  "schema": {
+   "n": 623,
+   "dtypes": {
+    "host_t": "float64",
+    "seq": "uint32",
+    "ts_us": "uint32",
+    "rssi": "int8",
+    "csi": "int8",
+    "csi_len": "int16"
+   },
+   "csi_shape": [
+    623,
+    384
+   ],
+   "pad_nonzero_packets": 0,
+   "len_counts": {
+    "128": 60,
+    "256": 25,
+    "384": 538
+   },
+   "len_changes": 140,
+   "most_common_len": 384,
+   "dropped_by_common_len_filter": 85,
+   "odd_or_nonblock_len": [],
+   "meta_samples": 623,
+   "meta_samples_match": true,
+   "meta_malformed_total": 8,
+   "meta_duration_s": 10.01
+  },
+  "timing": {
+   "host_dups": 0,
+   "host_backwards": 0,
+   "host_dt_ms": [
+    5.83,
+    17.25,
+    18.5,
+    19.04
+   ],
+   "host_span_s": 9.998,
+   "ts_reorder_or_dup": 0,
+   "ts_dt_ms": [
+    10.12,
+    15.68,
+    25.05,
+    36.48
+   ],
+   "ts_span_s": 10.462,
+   "rate_host_hz": 62.2,
+   "rate_ts_hz": 59.5,
+   "drift_ppm_host_vs_ts": -54142.0,
+   "host_minus_ts_residual_ms": {
+    "std": 102.39,
+    "p50": 164.39,
+    "p95": 312.52,
+    "max": 338.19
+   },
+   "residual_first1s_vs_last1s_ms": [
+    37.79,
+    46.33
+   ],
+   "ts_dt_p95_over_p50": 1.6
+  },
+  "seq": {
+   "seq_first": 359903,
+   "seq_last": 360612,
+   "seq_nonincreasing": 0,
+   "gap_events": 87,
+   "missing": 87,
+   "loss_pct": 12.3,
+   "max_burst": 1,
+   "burst_hist": {
+    "1": 87
+   },
+   "offered_rate_hz": 71.0
+  },
+  "rssi": {
+   "dtype": "int8",
+   "min": -65,
+   "max": -57,
+   "mean": -62.29,
+   "std": 1.65,
+   "n_distinct": 9,
+   "by_len": {
+    "128": -58.23,
+    "256": -60.44,
+    "384": -62.83
+   }
+  },
+  "blocks": {
+   "128": {
+    "n": 60,
+    "analysed": true,
+    "signature": "128:[0-5,32,59-63]",
+    "blocks": [
+     {
+      "block": 0,
+      "null_subcarriers": "0-5,32,59-63",
+      "n_valid": 52,
+      "mean_amp": 10.21,
+      "saturated_pct": 0.0,
+      "roughness_aligned": 1.42,
+      "roughness_shifted_by_1": 1.543,
+      "packet_gain_sd_log": 0.504,
+      "adj_step_rad_circ_mean": -0.005,
+      "adj_step_across_packets_sd": 0.033,
+      "adj_step_within_packet_R_median": 0.986,
+      "packet_mean_phase_R": 0.117,
+      "subcarrier_phase_R_median": 0.154
+     }
+    ],
+    "profile_corr_between_blocks": {}
+   },
+   "256": {
+    "n": 25,
+    "analysed": true,
+    "signature": "256:[0-5,32,59-63]|[0-3,32,61-63]",
+    "blocks": [
+     {
+      "block": 0,
+      "null_subcarriers": "0-5,32,59-63",
+      "n_valid": 52,
+      "mean_amp": 4.58,
+      "saturated_pct": 0.0,
+      "roughness_aligned": 0.353,
+      "roughness_shifted_by_1": 0.406,
+      "packet_gain_sd_log": 0.785,
+      "adj_step_rad_circ_mean": 0.0035,
+      "adj_step_across_packets_sd": 0.024,
+      "adj_step_within_packet_R_median": 0.974,
+      "packet_mean_phase_R": 0.303,
+      "subcarrier_phase_R_median": 0.219
+     },
+     {
+      "block": 1,
+      "null_subcarriers": "0-3,32,61-63",
+      "n_valid": 56,
+      "mean_amp": 9.08,
+      "saturated_pct": 0.0,
+      "roughness_aligned": 0.753,
+      "roughness_shifted_by_1": 0.883,
+      "packet_gain_sd_log": 0.808,
+      "adj_step_rad_circ_mean": 0.0015,
+      "adj_step_across_packets_sd": 0.025,
+      "adj_step_within_packet_R_median": 0.955,
+      "packet_mean_phase_R": 0.057,
+      "subcarrier_phase_R_median": 0.192
+     }
+    ],
+    "profile_corr_between_blocks": {
+     "b0_b1": 0.999
+    }
+   },
+   "384": {
+    "n": 538,
+    "analysed": true,
+    "signature": "384:[0-5,32,59-63]|[0-1,59-63]|[0-5,63]",
+    "blocks": [
+     {
+      "block": 0,
+      "null_subcarriers": "0-5,32,59-63",
+      "n_valid": 52,
+      "mean_amp": 3.71,
+      "saturated_pct": 0.0,
+      "roughness_aligned": 0.409,
+      "roughness_shifted_by_1": 0.489,
+      "packet_gain_sd_log": 0.096,
+      "adj_step_rad_circ_mean": 0.0097,
+      "adj_step_across_packets_sd": 0.024,
+      "adj_step_within_packet_R_median": 0.979,
+      "packet_mean_phase_R": 0.203,
+      "subcarrier_phase_R_median": 0.145
+     },
+     {
+      "block": 1,
+      "null_subcarriers": "0-1,59-63",
+      "n_valid": 57,
+      "mean_amp": 50.52,
+      "saturated_pct": 0.0,
+      "roughness_aligned": 3.069,
+      "roughness_shifted_by_1": 4.019,
+      "packet_gain_sd_log": 0.327,
+      "adj_step_rad_circ_mean": -0.0086,
+      "adj_step_across_packets_sd": 0.008,
+      "adj_step_within_packet_R_median": 0.994,
+      "packet_mean_phase_R": 0.022,
+      "subcarrier_phase_R_median": 0.023
+     },
+     {
+      "block": 2,
+      "null_subcarriers": "0-5,63",
+      "n_valid": 57,
+      "mean_amp": 16.69,
+      "saturated_pct": 0.0,
+      "roughness_aligned": 1.702,
+      "roughness_shifted_by_1": 2.139,
+      "packet_gain_sd_log": 0.331,
+      "adj_step_rad_circ_mean": 0.0184,
+      "adj_step_across_packets_sd": 0.021,
+      "adj_step_within_packet_R_median": 0.979,
+      "packet_mean_phase_R": 0.036,
+      "subcarrier_phase_R_median": 0.073
+     }
+    ],
+    "profile_corr_between_blocks": {
+     "b0_b1": -0.816,
+     "b0_b2": 0.999,
+     "b1_b2": -0.819
+    }
+   }
+  },
+  "flags": [
+   "MIXED_TYPES: {128: '10%', 256: '4%', 384: '86%'} - layouts differ (see block table)",
+   "COMMON_LEN_FILTER: existing pipeline drops 85 packets (13.6%) by keeping only csi_len=384",
+   "SEQ_LOSS: 12.3% (87 records never stored; max burst 1)",
+   "HOST_CLOCK: host_t departs from the radio clock (p95 312.52 ms): use ts_us for temporal/spectral work",
+   "IRREGULAR_SAMPLING: irregular sampling (ts_us dt p95/p50 = 1.6): resample on ts_us before FFT/Doppler",
+   "LOW_RATE: effective rate 59.5 Hz (Nyquist 30 Hz)",
+   "PHASE_OFFSET_RANDOM: len 128 block 0: raw per-packet phase offset is not stable (R=0.117) -> sanitisation needed",
+   "PHASE_OFFSET_RANDOM: len 256 block 0: raw per-packet phase offset is not stable (R=0.303) -> sanitisation needed",
+   "PHASE_OFFSET_RANDOM: len 256 block 1: raw per-packet phase offset is not stable (R=0.057) -> sanitisation needed",
+   "PHASE_OFFSET_RANDOM: len 384 block 0: raw per-packet phase offset is not stable (R=0.203) -> sanitisation needed",
+   "PHASE_OFFSET_RANDOM: len 384 block 1: raw per-packet phase offset is not stable (R=0.022) -> sanitisation needed",
+   "PHASE_OFFSET_RANDOM: len 384 block 2: raw per-packet phase offset is not stable (R=0.036) -> sanitisation needed"
+  ]
+ },
+ "r02/person_Z1/csi_link.npz": {
+  "schema": {
+   "n": 579,
+   "dtypes": {
+    "host_t": "float64",
+    "seq": "uint32",
+    "ts_us": "uint32",
+    "rssi": "int8",
+    "csi": "int8",
+    "csi_len": "int16"
+   },
+   "csi_shape": [
+    579,
+    384
+   ],
+   "pad_nonzero_packets": 0,
+   "len_counts": {
+    "256": 21,
+    "384": 558
+   },
+   "len_changes": 40,
+   "most_common_len": 384,
+   "dropped_by_common_len_filter": 21,
+   "odd_or_nonblock_len": [],
+   "meta_samples": 579,
+   "meta_samples_match": true,
+   "meta_malformed_total": 3,
+   "meta_duration_s": 10.01
+  },
+  "timing": {
+   "host_dups": 0,
+   "host_backwards": 0,
+   "host_dt_ms": [
+    15.9,
+    17.42,
+    18.79,
+    19.48
+   ],
+   "host_span_s": 9.991,
+   "ts_reorder_or_dup": 0,
+   "ts_dt_ms": [
+    10.09,
+    19.07,
+    23.75,
+    38.33
+   ],
+   "ts_span_s": 9.977,
+   "rate_host_hz": 57.9,
+   "rate_ts_hz": 57.9,
+   "drift_ppm_host_vs_ts": -608.0,
+   "host_minus_ts_residual_ms": {
+    "std": 19.4,
+    "p50": 47.89,
+    "p95": 79.89,
+    "max": 94.64
+   },
+   "residual_first1s_vs_last1s_ms": [
+    16.73,
+    47.81
+   ],
+   "ts_dt_p95_over_p50": 1.25
+  },
+  "seq": {
+   "seq_first": 320334,
+   "seq_last": 321111,
+   "seq_nonincreasing": 0,
+   "gap_events": 199,
+   "missing": 199,
+   "loss_pct": 25.6,
+   "max_burst": 1,
+   "burst_hist": {
+    "1": 199
+   },
+   "offered_rate_hz": 77.9
+  },
+  "rssi": {
+   "dtype": "int8",
+   "min": -56,
+   "max": -52,
+   "mean": -55.35,
+   "std": 0.74,
+   "n_distinct": 5,
+   "by_len": {
+    "256": -52.62,
+    "384": -55.45
+   }
+  },
+  "blocks": {
+   "256": {
+    "n": 21,
+    "analysed": true,
+    "signature": "256:[0-5,32,59-63]|[0-3,32,61-63]",
+    "blocks": [
+     {
+      "block": 0,
+      "null_subcarriers": "0-5,32,59-63",
+      "n_valid": 52,
+      "mean_amp": 4.93,
+      "saturated_pct": 0.0,
+      "roughness_aligned": 0.293,
+      "roughness_shifted_by_1": 0.377,
+      "packet_gain_sd_log": 0.718,
+      "adj_step_rad_circ_mean": 0.0056,
+      "adj_step_across_packets_sd": 0.005,
+      "adj_step_within_packet_R_median": 0.986,
+      "packet_mean_phase_R": 0.17,
+      "subcarrier_phase_R_median": 0.158
+     },
+     {
+      "block": 1,
+      "null_subcarriers": "0-3,32,61-63",
+      "n_valid": 56,
+      "mean_amp": 12.48,
+      "saturated_pct": 0.0,
+      "roughness_aligned": 0.739,
+      "roughness_shifted_by_1": 0.951,
+      "packet_gain_sd_log": 0.902,
+      "adj_step_rad_circ_mean": 0.0094,
+      "adj_step_across_packets_sd": 0.006,
+      "adj_step_within_packet_R_median": 0.983,
+      "packet_mean_phase_R": 0.331,
+      "subcarrier_phase_R_median": 0.324
+     }
+    ],
+    "profile_corr_between_blocks": {
+     "b0_b1": 0.985
+    }
+   },
+   "384": {
+    "n": 558,
+    "analysed": true,
+    "signature": "384:[0-5,32,59-63]|[0-1,59-63]|[0-5,63]",
+    "blocks": [
+     {
+      "block": 0,
+      "null_subcarriers": "0-5,32,59-63",
+      "n_valid": 52,
+      "mean_amp": 8.63,
+      "saturated_pct": 0.0,
+      "roughness_aligned": 0.506,
+      "roughness_shifted_by_1": 0.788,
+      "packet_gain_sd_log": 0.06,
+      "adj_step_rad_circ_mean": 0.0067,
+      "adj_step_across_packets_sd": 0.002,
+      "adj_step_within_packet_R_median": 0.996,
+      "packet_mean_phase_R": 0.021,
+      "subcarrier_phase_R_median": 0.022
+     },
+     {
+      "block": 1,
+      "null_subcarriers": "0-1,59-63",
+      "n_valid": 57,
+      "mean_amp": 50.29,
+      "saturated_pct": 0.0,
+      "roughness_aligned": 2.373,
+      "roughness_shifted_by_1": 3.168,
+      "packet_gain_sd_log": 0.099,
+      "adj_step_rad_circ_mean": 0.0011,
+      "adj_step_across_packets_sd": 0.003,
+      "adj_step_within_packet_R_median": 0.996,
+      "packet_mean_phase_R": 0.026,
+      "subcarrier_phase_R_median": 0.025
+     },
+     {
+      "block": 2,
+      "null_subcarriers": "0-5,63",
+      "n_valid": 57,
+      "mean_amp": 43.96,
+      "saturated_pct": 0.0,
+      "roughness_aligned": 2.212,
+      "roughness_shifted_by_1": 3.066,
+      "packet_gain_sd_log": 0.108,
+      "adj_step_rad_circ_mean": 0.0054,
+      "adj_step_across_packets_sd": 0.004,
+      "adj_step_within_packet_R_median": 0.995,
+      "packet_mean_phase_R": 0.019,
+      "subcarrier_phase_R_median": 0.018
+     }
+    ],
+    "profile_corr_between_blocks": {
+     "b0_b1": -0.057,
+     "b0_b2": 0.993,
+     "b1_b2": -0.024
+    }
+   }
+  },
+  "flags": [
+   "MIXED_TYPES: {256: '4%', 384: '96%'} - layouts differ (see block table)",
+   "COMMON_LEN_FILTER: existing pipeline drops 21 packets (3.6%) by keeping only csi_len=384",
+   "SEQ_LOSS: 25.6% (199 records never stored; max burst 1)",
+   "HOST_CLOCK: host_t departs from the radio clock (p95 79.89 ms): use ts_us for temporal/spectral work",
+   "LOW_RATE: effective rate 57.9 Hz (Nyquist 29 Hz)",
+   "PHASE_OFFSET_RANDOM: len 256 block 0: raw per-packet phase offset is not stable (R=0.17) -> sanitisation needed",
+   "PHASE_OFFSET_RANDOM: len 256 block 1: raw per-packet phase offset is not stable (R=0.331) -> sanitisation needed",
+   "PHASE_OFFSET_RANDOM: len 384 block 0: raw per-packet phase offset is not stable (R=0.021) -> sanitisation needed",
+   "PHASE_OFFSET_RANDOM: len 384 block 1: raw per-packet phase offset is not stable (R=0.026) -> sanitisation needed",
+   "PHASE_OFFSET_RANDOM: len 384 block 2: raw per-packet phase offset is not stable (R=0.019) -> sanitisation needed"
+  ]
+ }
+}

@@ -1,0 +1,166 @@
+"""
+zone_eval.py - STEP 1 analysis: does CSI from the room carry information about WHERE an object / person is?
+
+    python zone_eval.py --data dataset_room                 # primary: --norm ref
+    python zone_eval.py --data dataset_room --norm packet   # exploratory comparison
+
+Works for 1 link now and for any number of links later (all csi_<name>.npz of a recording are concatenated).
+
+FROZEN PIPELINE (decided before any data was looked at):
+  features  per link: mean over time (first/last 0.5 s trimmed) of per-packet-normalized log(1+amplitude), per live subcarrier
+  --norm ref     subtract the mean feature vector of the 'empty' recordings of the SAME session (empty-room calibration;
+                 for an empty recording itself, the mean of the OTHER empty recordings). Needs >= 3 empties per session.
+  --norm packet  no reference, per-packet gain removal only        --norm none  raw log amplitude
+  model     StandardScaler + LogisticRegression(C=0.1, balanced)
+  protocol  >= 2 sessions: leave-one-session-out (the held-out session is never used for fitting; with --norm ref it only
+            contributes its own empty recordings as reference).  1 session: stratified 5-fold CV (valid because the
+            protocol order is shuffled, so class is not confounded with time).
+  evidence  permutation test: labels shuffled within each session, whole procedure refit. p = share of shuffles >= observed.
+  sanity    'time-only' baseline: label of the nearest-in-time recording of the same session, no CSI. Must be near chance.
+Tasks: obj_zone, person_zone (k-way zone), obj_presence, person_presence (vs empty).
+READING: person_zone is the positive control. If it fails, the geometry cannot localize even a person -> fix the setup
+before blaming the object. If person works and obj does not, the object is too small (use something larger / water-filled).
+"""
+import argparse, glob, json, os
+import datetime as dt
+from collections import Counter, defaultdict
+import numpy as np
+import common as C
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import StratifiedKFold
+from sklearn.metrics import balanced_accuracy_score, confusion_matrix
+
+
+def load(root, trim=0.5):
+    recs = []
+    for mp in sorted(glob.glob(os.path.join(root, "*", "*", "meta.json"))):
+        d = os.path.dirname(mp); meta = json.load(open(mp)); links = {}
+        for f in sorted(glob.glob(os.path.join(d, "csi_*.npz"))):
+            z = np.load(f); lens = z["csi_len"]
+            L = Counter(lens.tolist()).most_common(1)[0][0]; keep = lens == L
+            if keep.sum() < 100:
+                continue
+            A = C.csi_amplitude(z["csi"][keep, :L]); t = z["host_t"][keep]
+            links[os.path.basename(f)[4:-4]] = A[(t > t[0] + trim) & (t < t[-1] - trim)]
+        if links:
+            recs.append({"meta": meta, "links": links, "path": d})
+    if not recs:
+        raise SystemExit(f"no recordings under {root}/")
+    common_set = Counter(tuple(sorted(r["links"])) for r in recs).most_common(1)[0][0]
+    recs = [r for r in recs if tuple(sorted(r["links"])) == common_set]
+    return recs, list(common_set)
+
+
+def featurize(recs, names, norm):
+    live = {}
+    for n in names:
+        rm = np.mean([r["links"][n].mean(0) for r in recs], 0)
+        live[n] = rm > 0.05 * np.median(rm)
+    for r in recs:
+        parts = []
+        for n in names:
+            Lg = np.log1p(r["links"][n])
+            if norm != "none":
+                Lg = Lg - Lg[:, live[n]].mean(1, keepdims=True)
+            parts.append(Lg[:, live[n]].mean(0))
+        r["feat"] = np.concatenate(parts)
+    if norm == "ref":
+        for u in {r["meta"]["session"] for r in recs}:
+            idx = [i for i, r in enumerate(recs) if r["meta"]["session"] == u]
+            emp = [i for i in idx if recs[i]["meta"]["condition"] == "empty"]
+            if len(emp) < 3:
+                raise SystemExit(f"--norm ref needs >= 3 'empty' recordings in session {u} (found {len(emp)})")
+            F = np.array([recs[i]["feat"] for i in emp]); tot = F.sum(0)
+            new = {}
+            for i in idx:
+                if i in emp:
+                    new[i] = recs[i]["feat"] - (tot - recs[i]["feat"]) / (len(emp) - 1)
+                else:
+                    new[i] = recs[i]["feat"] - tot / len(emp)
+            for i, v in new.items():
+                recs[i]["feat"] = v
+
+
+def model(Cc):
+    return make_pipeline(StandardScaler(), LogisticRegression(C=Cc, max_iter=1000, class_weight="balanced"))
+
+
+def run_cv(X, y, s, Cc, seed=0):
+    pred = np.zeros_like(y); sess = np.unique(s)
+    if len(sess) >= 2:
+        for u in sess:
+            te = s == u
+            if len(set(y[~te])) < len(set(y)):
+                pred[te] = -1; continue
+            pred[te] = model(Cc).fit(X[~te], y[~te]).predict(X[te])
+        mode = "leave-one-session-out"
+    else:
+        k = int(min(5, np.bincount(y)[np.bincount(y) > 0].min()))
+        if k < 2:
+            return None, "too few recordings"
+        for tr, te in StratifiedKFold(k, shuffle=True, random_state=seed).split(X, y):
+            pred[te] = model(Cc).fit(X[tr], y[tr]).predict(X[te])
+        mode = f"{k}-fold CV within one session"
+    ok = pred >= 0
+    return (pred, ok), mode
+
+
+def time_only(y, s, t):
+    pred = np.zeros_like(y)
+    for i in range(len(y)):
+        idx = [j for j in range(len(y)) if j != i and s[j] == s[i]]
+        pred[i] = y[idx[int(np.argmin(np.abs(t[idx] - t[i])))]] if idx else y[i]
+    return pred
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--data", default="dataset_room")
+    ap.add_argument("--norm", choices=["ref", "packet", "none"], default="ref")
+    ap.add_argument("--perms", type=int, default=500)
+    ap.add_argument("--C", type=float, default=0.1)
+    a = ap.parse_args()
+    rng = np.random.default_rng(0)
+    recs, names = load(a.data)
+    featurize(recs, names, a.norm)
+    sessions = sorted({r["meta"]["session"] for r in recs})
+    print(f"{len(recs)} recordings, links {names}, sessions {sessions}, norm={a.norm}, {a.perms} permutations per task")
+    print(f"{'task':<16}{'n':>4}{'classes':>8}{'chance':>8}{'bal.acc':>9}{'null95':>8}{'p':>8}{'time-only':>11}   scheme")
+    for cond in ("obj", "person"):
+        for kind in ("zone", "presence"):
+            if kind == "zone":
+                sel = [i for i, r in enumerate(recs) if r["meta"]["condition"] == cond and r["meta"].get("zone")]
+                labs = sorted({recs[i]["meta"]["zone"] for i in sel}); y = np.array([labs.index(recs[i]["meta"]["zone"]) for i in sel])
+            else:
+                sel = [i for i, r in enumerate(recs) if r["meta"]["condition"] in (cond, "empty")]
+                labs = ["empty", cond]; y = np.array([int(recs[i]["meta"]["condition"] == cond) for i in sel])
+            if len(sel) < 6 or len(set(y)) < 2:
+                continue
+            X = np.array([recs[i]["feat"] for i in sel]); s = np.array([recs[i]["meta"]["session"] for i in sel])
+            t = np.array([dt.datetime.fromisoformat(recs[i]["meta"]["created"]).timestamp() for i in sel])
+            res, mode = run_cv(X, y, s, a.C)
+            if res is None:
+                print(f"{cond + '_' + kind:<16} skipped: {mode}"); continue
+            pred, ok = res
+            obs = balanced_accuracy_score(y[ok], pred[ok]); null = []
+            for _ in range(a.perms):
+                yp = y.copy()
+                for u in np.unique(s):
+                    idx = np.where(s == u)[0]; yp[idx] = y[rng.permutation(idx)]
+                r2, _ = run_cv(X, yp, s, a.C)
+                null.append(balanced_accuracy_score(yp[r2[1]], r2[0][r2[1]]))
+            null = np.array(null); p = (1 + (null >= obs).sum()) / (1 + a.perms)
+            tb = balanced_accuracy_score(y, time_only(y, s, t))
+            print(f"{cond + '_' + kind:<16}{len(y):>4}{len(labs):>8}{100 / len(labs):>7.0f}%{100 * obs:>8.1f}%{100 * np.percentile(null, 95):>7.1f}%{p:>8.3f}{100 * tb:>10.1f}%   {mode}")
+            if kind == "zone":
+                cm = confusion_matrix(y[ok], pred[ok], labels=range(len(labs)))
+                err = np.mean(np.abs(pred[ok] - y[ok]))
+                print(f"    confusion (rows true, cols pred) order {labs}:  mean zone error {err:.2f} zones\n    " + str(cm.tolist()))
+    print("\np small AND bal.acc well above chance = zone/presence information is present. time-only should be near chance.")
+    print("person_zone is the positive control; interpret obj_zone only in light of it.")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,29 @@
+{
+  "label": "person_Z1",
+  "condition": "person",
+  "zone": "Z1",
+  "object_present": 0,
+  "human_present": 1,
+  "motion": 0,
+  "session": "r01",
+  "protocol_line": 1,
+  "created": "2026-10-29T00:47:58",
+  "duration_s": 10.0,
+  "links": [
+    "link"
+  ],
+  "ports": [
+    "/dev/cu.usbmodem101"
+  ],
+  "csi_samples": {
+    "link": 596
+  },
+  "csi_rate_hz": {
+    "link": 59.6
+  },
+  "weak_links": [],
+  "csi_malformed_total": {
+    "link": 0
+  },
+  "time_base": "time.monotonic() on the Mac, shared by all links"
+}

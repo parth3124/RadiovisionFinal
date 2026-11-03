@@ -1,0 +1,21 @@
+
+r01: 44 recordings over 33 min; protocol-line order matches true order in 100% of steps
+  pauses > 45 s: 13 [(2, 79), (3, 48), (5, 92), (6, 76), (7, 176), (8, 54), (11, 50), (13, 57), (20, 49), (23, 47), (24, 98), (34, 61)]  (index of recording after the pause, seconds)
+  regime A (>= 3% len-128) in 25/44 recordings; A/B runs in time order: observed 26, shuffled median 22 (p that time-clustering this strong arises by chance = 0.887)
+  true-order sequence (A/B): BABBBAABBBAABAAABAABAAAAABABBABABABBABAAAABA
+  labels in that order:      PZ1 E OZ1 PZ2 PZ3 OZ3 E OZ1 OZ2 PZ2 PZ1 OZ3 PZ3 OZ3 PZ1 OZ3 OZ1 E OZ2 PZ3 OZ2 OZ3 OZ2 E OZ3 PZ2 OZ2 PZ2 OZ1 PZ1 PZ2 E PZ3 E OZ1 PZ3 PZ1 PZ3 PZ1 E OZ2 E PZ2 OZ1
+  regime A count per label:  {'empty': '8/8', 'obj_Z1': '1/6', 'obj_Z2': '5/6', 'obj_Z3': '6/6', 'person_Z1': '5/6', 'person_Z2': '0/6', 'person_Z3': '0/6'}
+
+r02: 44 recordings over 25 min; protocol-line order matches true order in 100% of steps
+  pauses > 45 s: 3 [(9, 51), (25, 133), (26, 134)]  (index of recording after the pause, seconds)
+  regime A (>= 3% len-128) in 10/44 recordings; A/B runs in time order: observed 10, shuffled median 17 (p that time-clustering this strong arises by chance = 0.006)
+  true-order sequence (A/B): BBBBBBBBABBBBBBBBBBBBBBBBBABAAABBBBBBBAAABAA
+  labels in that order:      PZ3 OZ1 OZ3 PZ2 E OZ2 E PZ1 OZ1 OZ3 E PZ1 PZ2 OZ3 PZ3 E PZ1 PZ3 PZ2 PZ1 OZ1 PZ2 OZ2 PZ2 E OZ2 OZ1 PZ2 E PZ1 OZ2 PZ3 OZ3 PZ1 PZ3 E OZ1 OZ3 OZ2 OZ1 OZ3 PZ3 E OZ2
+  regime A count per label:  {'empty': '2/8', 'obj_Z1': '3/6', 'obj_Z2': '3/6', 'obj_Z3': '1/6', 'person_Z1': '1/6', 'person_Z2': '0/6', 'person_Z3': '0/6'}
+
+r03: 44 recordings over 16 min; protocol-line order matches true order in 100% of steps
+  pauses > 45 s: 0 []  (index of recording after the pause, seconds)
+  regime A (>= 3% len-128) in 0/44 recordings; A/B runs in time order: observed 1, shuffled median 1 (p that time-clustering this strong arises by chance = 1.000)
+  true-order sequence (A/B): BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+  labels in that order:      E PZ2 E PZ1 PZ2 PZ1 OZ3 OZ2 OZ3 PZ3 PZ1 PZ2 OZ3 PZ1 OZ1 PZ2 OZ1 PZ1 OZ1 PZ3 E PZ3 OZ3 E OZ2 E OZ3 E OZ2 PZ3 OZ1 PZ3 PZ1 E OZ1 OZ3 PZ2 PZ3 OZ2 PZ2 OZ2 OZ1 OZ2 E
+  regime A count per label:  {'empty': '0/8', 'obj_Z1': '0/6', 'obj_Z2': '0/6', 'obj_Z3': '0/6', 'person_Z1': '0/6', 'person_Z2': '0/6', 'person_Z3': '0/6'}

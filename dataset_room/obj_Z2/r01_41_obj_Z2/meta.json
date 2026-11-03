@@ -1,0 +1,29 @@
+{
+  "label": "obj_Z2",
+  "condition": "obj",
+  "zone": "Z2",
+  "object_present": 1,
+  "human_present": 0,
+  "motion": 0,
+  "session": "r01",
+  "protocol_line": 41,
+  "created": "2026-10-29T01:18:40",
+  "duration_s": 10.0,
+  "links": [
+    "link"
+  ],
+  "ports": [
+    "/dev/cu.usbmodem101"
+  ],
+  "csi_samples": {
+    "link": 639
+  },
+  "csi_rate_hz": {
+    "link": 63.9
+  },
+  "weak_links": [],
+  "csi_malformed_total": {
+    "link": 16
+  },
+  "time_base": "time.monotonic() on the Mac, shared by all links"
+}

@@ -1,0 +1,77 @@
+132 recordings, sessions [np.str_('r01'), np.str_('r02'), np.str_('r03')], labels [np.str_('empty'), np.str_('obj_Z1'), np.str_('obj_Z2'), np.str_('obj_Z3'), np.str_('person_Z1'), np.str_('person_Z2'), np.str_('person_Z3')]
+
+MEDIANS per session x label  (pct_len128 | loss_pct | rate_ts_hz | rssi_mean)
+  r01
+    empty      n=8     12.2 |    13.4 |    63.9 |   -59.5
+    obj_Z1     n=6      0.7 |    31.8 |    58.7 |   -60.4
+    obj_Z2     n=6     10.6 |    14.7 |    62.2 |   -59.4
+    obj_Z3     n=6     11.6 |    15.9 |    63.2 |   -59.3
+    person_Z1  n=6      9.2 |    19.4 |    61.7 |   -63.3
+    person_Z2  n=6      0.3 |    30.5 |    58.5 |   -60.7
+    person_Z3  n=6      1.5 |    31.1 |    58.5 |   -61.2
+  r02
+    empty      n=8      0.0 |    24.0 |    58.4 |   -53.6
+    obj_Z1     n=6      4.3 |    22.4 |    58.7 |   -60.6
+    obj_Z2     n=6      4.3 |    22.6 |    60.0 |   -58.3
+    obj_Z3     n=6      0.0 |    21.1 |    58.5 |   -54.6
+    person_Z1  n=6      0.0 |    28.9 |    58.1 |   -54.6
+    person_Z2  n=6      0.0 |    27.2 |    58.5 |   -57.5
+    person_Z3  n=6      0.0 |    28.0 |    58.3 |   -54.6
+  r03
+    empty      n=8      0.0 |    24.9 |    58.3 |   -49.6
+    obj_Z1     n=6      0.0 |    27.4 |    58.5 |   -55.1
+    obj_Z2     n=6      0.0 |    30.5 |    58.2 |   -53.7
+    obj_Z3     n=6      0.0 |    27.9 |    58.4 |   -54.1
+    person_Z1  n=6      0.0 |    25.4 |    58.2 |   -53.4
+    person_Z2  n=6      0.0 |    23.4 |    58.2 |   -55.9
+    person_Z3  n=6      0.0 |    22.8 |    58.5 |   -54.7
+
+WITHIN-SESSION PERMUTATION TESTS (1000 shuffles). cells: eta^2 (share of rank variance explained) and p per session r01/r02/r03 | pooled p
+
+  label (7 groups)
+    pct_len128           r01: 0.67 p=0.001  r02: 0.23 p=0.125  r03: 0.00 p=1.000 | pooled p=0.001   <==
+    pct_len256           r01: 0.10 p=0.631  r02: 0.14 p=0.441  r03: 0.13 p=0.509 | pooled p=0.625
+    loss_pct             r01: 0.70 p=0.001  r02: 0.20 p=0.190  r03: 0.07 p=0.811 | pooled p=0.002   <==
+    rate_ts_hz           r01: 0.69 p=0.001  r02: 0.14 p=0.463  r03: 0.16 p=0.335 | pooled p=0.001   <==
+    host_resid_p95_ms    r01: 0.69 p=0.001  r02: 0.16 p=0.310  r03: 0.18 p=0.264 | pooled p=0.001   <==
+    ts_dt_p95_over_p50   r01: 0.72 p=0.001  r02: 0.14 p=0.457  r03: 0.15 p=0.399 | pooled p=0.001   <==
+    rssi_mean            r01: 0.56 p=0.001  r02: 0.52 p=0.001  r03: 0.25 p=0.093 | pooled p=0.001   <==
+    rssi_sd              r01: 0.62 p=0.001  r02: 0.24 p=0.097  r03: 0.18 p=0.269 | pooled p=0.001   <==
+
+  person vs not
+    pct_len128           r01: 0.17 p=0.004  r02: 0.11 p=0.027  r03: 0.00 p=1.000 | pooled p=0.003   <==
+    pct_len256           r01: 0.02 p=0.345  r02: 0.00 p=0.643  r03: 0.00 p=0.962 | pooled p=0.773
+    loss_pct             r01: 0.18 p=0.005  r02: 0.18 p=0.006  r03: 0.02 p=0.415 | pooled p=0.002   <==
+    rate_ts_hz           r01: 0.22 p=0.003  r02: 0.09 p=0.054  r03: 0.00 p=0.852 | pooled p=0.004   <==
+    host_resid_p95_ms    r01: 0.10 p=0.028  r02: 0.08 p=0.054  r03: 0.00 p=0.785 | pooled p=0.039
+    ts_dt_p95_over_p50   r01: 0.10 p=0.033  r02: 0.09 p=0.049  r03: 0.01 p=0.541 | pooled p=0.025
+    rssi_mean            r01: 0.44 p=0.001  r02: 0.00 p=0.703  r03: 0.12 p=0.021 | pooled p=0.001   <==
+    rssi_sd              r01: 0.05 p=0.139  r02: 0.19 p=0.003  r03: 0.08 p=0.052 | pooled p=0.003   <==
+
+  zone (person only)
+    pct_len128           r01: 0.76 p=0.001  r02: 0.06 p=1.000  r03: 0.00 p=1.000 | pooled p=0.002   <==
+    pct_len256           r01: 0.08 p=0.517  r02: 0.03 p=0.778  r03: 0.18 p=0.219 | pooled p=0.589
+    loss_pct             r01: 0.56 p=0.004  r02: 0.02 p=0.836  r03: 0.04 p=0.692 | pooled p=0.100
+    rate_ts_hz           r01: 0.65 p=0.004  r02: 0.01 p=0.936  r03: 0.20 p=0.203 | pooled p=0.020
+    host_resid_p95_ms    r01: 0.74 p=0.001  r02: 0.15 p=0.298  r03: 0.13 p=0.376 | pooled p=0.006   <==
+    ts_dt_p95_over_p50   r01: 0.62 p=0.004  r02: 0.05 p=0.667  r03: 0.20 p=0.198 | pooled p=0.014
+    rssi_mean            r01: 0.30 p=0.058  r02: 0.38 p=0.039  r03: 0.06 p=0.642 | pooled p=0.033
+    rssi_sd              r01: 0.56 p=0.003  r02: 0.02 p=0.882  r03: 0.17 p=0.243 | pooled p=0.037
+
+  recording order (|Spearman| of variable with protocol line, within session)
+    pct_len128           r01: 0.07 p=0.660  r02: 0.46 p=0.002  r03: nan p=0.001 | pooled p=0.001   <==
+    pct_len256           r01: 0.02 p=0.862  r02: 0.26 p=0.084  r03: 0.32 p=0.037 | pooled p=0.077
+    loss_pct             r01: 0.07 p=0.655  r02: 0.28 p=0.061  r03: 0.02 p=0.886 | pooled p=0.458
+    rate_ts_hz           r01: 0.16 p=0.291  r02: 0.28 p=0.073  r03: 0.26 p=0.080 | pooled p=0.035
+    host_resid_p95_ms    r01: 0.10 p=0.517  r02: 0.44 p=0.003  r03: 0.21 p=0.161 | pooled p=0.010   <==
+    ts_dt_p95_over_p50   r01: 0.07 p=0.654  r02: 0.35 p=0.025  r03: 0.02 p=0.879 | pooled p=0.319
+    rssi_mean            r01: 0.08 p=0.629  r02: 0.40 p=0.007  r03: 0.04 p=0.772 | pooled p=0.159
+    rssi_sd              r01: 0.11 p=0.465  r02: 0.29 p=0.048  r03: 0.02 p=0.899 | pooled p=0.326
+
+NUISANCE-ONLY CLASSIFIERS (leave-one-session-out, balanced accuracy; permutation p within sessions, 200 shuffles)
+  person vs not-person     packet/timing only     bal.acc  57.7%  (chance 50%)  p=0.045
+  person vs not-person     packet/timing + RSSI   bal.acc  65.5%  (chance 50%)  p=0.005
+  person vs not-person     RSSI only              bal.acc  68.0%  (chance 50%)  p=0.005
+  person zone (3-class)    packet/timing only     bal.acc  29.6%  (chance 33%)  p=0.726
+  person zone (3-class)    packet/timing + RSSI   bal.acc  33.3%  (chance 33%)  p=0.552
+  person zone (3-class)    RSSI only              bal.acc  35.2%  (chance 33%)  p=0.488

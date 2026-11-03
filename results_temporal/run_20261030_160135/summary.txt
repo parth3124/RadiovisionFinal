@@ -1,0 +1,79 @@
+
+=== normalization: packet  (mean over seeds for C; mean over directions in the first columns) ===
+model   mean acc  mean bal  mean F1   r01>r02  r01>r03  r02>r01  r02>r03  r03>r01  r03>r02  
+A          31.5%     31.5%    24.0%      33.3%   33.3%   44.4%   33.3%   11.1%   33.3%
+B1         34.3%     34.3%    26.2%      33.3%   33.3%   38.9%   27.8%   27.8%   44.4%
+B2         35.2%     35.2%    30.1%      38.9%   33.3%   27.8%   33.3%   27.8%   50.0%
+B3         37.0%     37.0%    30.1%      38.9%   33.3%   50.0%   38.9%   27.8%   33.3%
+
+per-direction detail (seed-summed confusion, rows = true zone, cols = predicted):
+  A r01->r02: recall [0.0, 1.0, 0.0] precision [0.0, 0.33, 0.0] pred counts [0, 18, 0]  confusion [[0, 6, 0], [0, 6, 0], [0, 6, 0]]
+  A r01->r03: recall [0.0, 1.0, 0.0] precision [0.0, 0.33, 0.0] pred counts [0, 18, 0]  confusion [[0, 6, 0], [0, 6, 0], [0, 6, 0]]
+  A r02->r01: recall [0.17, 0.5, 0.67] precision [0.5, 0.33, 0.57] pred counts [2, 9, 7]  confusion [[1, 5, 0], [0, 3, 3], [1, 1, 4]]
+  A r02->r03: recall [0.33, 0.67, 0.0] precision [0.29, 0.4, 0.0] pred counts [7, 10, 1]  confusion [[2, 3, 1], [2, 4, 0], [3, 3, 0]]
+  A r03->r01: recall [0.17, 0.17, 0.0] precision [0.1, 0.14, 0.0] pred counts [10, 7, 1]  confusion [[1, 5, 0], [4, 1, 1], [5, 1, 0]]
+  A r03->r02: recall [0.5, 0.17, 0.33] precision [0.27, 0.5, 0.4] pred counts [11, 2, 5]  confusion [[3, 1, 2], [4, 1, 1], [4, 0, 2]]
+  B1 r01->r02: recall [0.0, 1.0, 0.0] precision [0.0, 0.33, 0.0] pred counts [0, 18, 0]  confusion [[0, 6, 0], [0, 6, 0], [0, 6, 0]]
+  B1 r01->r03: recall [0.0, 1.0, 0.0] precision [0.0, 0.33, 0.0] pred counts [0, 18, 0]  confusion [[0, 6, 0], [0, 6, 0], [0, 6, 0]]
+  B1 r02->r01: recall [0.0, 0.5, 0.67] precision [0.0, 0.3, 0.57] pred counts [1, 10, 7]  confusion [[0, 6, 0], [0, 3, 3], [1, 1, 4]]
+  B1 r02->r03: recall [0.33, 0.5, 0.0] precision [0.25, 0.33, 0.0] pred counts [8, 9, 1]  confusion [[2, 3, 1], [3, 3, 0], [3, 3, 0]]
+  B1 r03->r01: recall [0.33, 0.17, 0.33] precision [0.25, 0.2, 0.4] pred counts [8, 5, 5]  confusion [[2, 3, 1], [3, 1, 2], [3, 1, 2]]
+  B1 r03->r02: recall [0.33, 0.17, 0.83] precision [0.5, 0.33, 0.45] pred counts [4, 3, 11]  confusion [[2, 1, 3], [2, 1, 3], [0, 1, 5]]
+  B2 r01->r02: recall [0.0, 0.33, 0.83] precision [0.0, 0.4, 0.42] pred counts [1, 5, 12]  confusion [[0, 2, 4], [1, 2, 3], [0, 1, 5]]
+  B2 r01->r03: recall [0.0, 0.67, 0.33] precision [0.0, 0.36, 0.33] pred counts [1, 11, 6]  confusion [[0, 3, 3], [1, 4, 1], [0, 4, 2]]
+  B2 r02->r01: recall [0.0, 0.5, 0.33] precision [0.0, 0.3, 0.29] pred counts [1, 10, 7]  confusion [[0, 4, 2], [0, 3, 3], [1, 3, 2]]
+  B2 r02->r03: recall [0.17, 0.67, 0.17] precision [0.17, 0.4, 0.5] pred counts [6, 10, 2]  confusion [[1, 5, 0], [1, 4, 1], [4, 1, 1]]
+  B2 r03->r01: recall [0.0, 0.33, 0.5] precision [0.0, 0.22, 0.33] pred counts [0, 9, 9]  confusion [[0, 4, 2], [0, 2, 4], [0, 3, 3]]
+  B2 r03->r02: recall [0.33, 0.33, 0.83] precision [0.67, 0.4, 0.5] pred counts [3, 5, 10]  confusion [[2, 2, 2], [1, 2, 3], [0, 1, 5]]
+  B3 r01->r02: recall [0.0, 0.83, 0.33] precision [0.0, 0.36, 0.5] pred counts [0, 14, 4]  confusion [[0, 5, 1], [0, 5, 1], [0, 4, 2]]
+  B3 r01->r03: recall [0.0, 1.0, 0.0] precision [0.0, 0.38, 0.0] pred counts [0, 16, 2]  confusion [[0, 4, 2], [0, 6, 0], [0, 6, 0]]
+  B3 r02->r01: recall [0.17, 0.5, 0.83] precision [1.0, 0.38, 0.56] pred counts [1, 8, 9]  confusion [[1, 4, 1], [0, 3, 3], [0, 1, 5]]
+  B3 r02->r03: recall [0.5, 0.67, 0.0] precision [0.38, 0.4, 0.0] pred counts [8, 10, 0]  confusion [[3, 3, 0], [2, 4, 0], [3, 3, 0]]
+  B3 r03->r01: recall [0.0, 0.17, 0.67] precision [0.0, 0.14, 0.44] pred counts [2, 7, 9]  confusion [[0, 5, 1], [1, 1, 4], [1, 1, 4]]
+  B3 r03->r02: recall [0.33, 0.17, 0.5] precision [0.22, 0.5, 0.43] pred counts [9, 2, 7]  confusion [[2, 1, 3], [4, 1, 1], [3, 0, 3]]
+
+paired bootstrap over recordings, accuracy difference vs A (95% interval; each recording is tested in 2 directions):
+  B1 - A: +2.8 pts  [-2.8, +8.3]  over 54 recordings
+  B2 - A: +3.7 pts  [-7.4, +15.7]  over 54 recordings
+  B3 - A: +5.6 pts  [-3.7, +13.9]  over 54 recordings
+
+=== normalization: none  (mean over seeds for C; mean over directions in the first columns) ===
+model   mean acc  mean bal  mean F1   r01>r02  r01>r03  r02>r01  r02>r03  r03>r01  r03>r02  
+A          37.0%     37.0%    28.7%      33.3%   33.3%   50.0%   33.3%   27.8%   44.4%
+B1         33.3%     33.3%    23.5%      33.3%   33.3%   33.3%   33.3%   27.8%   38.9%
+B2         37.0%     37.0%    29.2%      44.4%   33.3%   38.9%   22.2%   33.3%   50.0%
+B3         38.0%     38.0%    28.0%      33.3%   33.3%   38.9%   33.3%   38.9%   50.0%
+
+per-direction detail (seed-summed confusion, rows = true zone, cols = predicted):
+  A r01->r02: recall [0.0, 1.0, 0.0] precision [0.0, 0.33, 0.0] pred counts [0, 18, 0]  confusion [[0, 6, 0], [0, 6, 0], [0, 6, 0]]
+  A r01->r03: recall [0.0, 1.0, 0.0] precision [0.0, 0.35, 0.0] pred counts [0, 17, 1]  confusion [[0, 5, 1], [0, 6, 0], [0, 6, 0]]
+  A r02->r01: recall [0.17, 0.5, 0.83] precision [1.0, 0.38, 0.56] pred counts [1, 8, 9]  confusion [[1, 4, 1], [0, 3, 3], [0, 1, 5]]
+  A r02->r03: recall [0.33, 0.67, 0.0] precision [0.29, 0.4, 0.0] pred counts [7, 10, 1]  confusion [[2, 3, 1], [2, 4, 0], [3, 3, 0]]
+  A r03->r01: recall [0.67, 0.17, 0.0] precision [0.29, 0.33, 0.0] pred counts [14, 3, 1]  confusion [[4, 2, 0], [4, 1, 1], [6, 0, 0]]
+  A r03->r02: recall [0.67, 0.33, 0.33] precision [0.36, 1.0, 0.4] pred counts [11, 2, 5]  confusion [[4, 0, 2], [3, 2, 1], [4, 0, 2]]
+  B1 r01->r02: recall [0.0, 1.0, 0.0] precision [0.0, 0.33, 0.0] pred counts [0, 18, 0]  confusion [[0, 6, 0], [0, 6, 0], [0, 6, 0]]
+  B1 r01->r03: recall [0.0, 1.0, 0.0] precision [0.0, 0.35, 0.0] pred counts [0, 17, 1]  confusion [[0, 5, 1], [0, 6, 0], [0, 6, 0]]
+  B1 r02->r01: recall [0.0, 0.33, 0.67] precision [0.0, 0.25, 0.44] pred counts [1, 8, 9]  confusion [[0, 5, 1], [0, 2, 4], [1, 1, 4]]
+  B1 r02->r03: recall [0.33, 0.67, 0.0] precision [0.29, 0.4, 0.0] pred counts [7, 10, 1]  confusion [[2, 3, 1], [2, 4, 0], [3, 3, 0]]
+  B1 r03->r01: recall [0.83, 0.0, 0.0] precision [0.33, 0.0, 0.0] pred counts [15, 1, 2]  confusion [[5, 1, 0], [4, 0, 2], [6, 0, 0]]
+  B1 r03->r02: recall [0.5, 0.17, 0.5] precision [0.33, 1.0, 0.38] pred counts [9, 1, 8]  confusion [[3, 0, 3], [3, 1, 2], [3, 0, 3]]
+  B2 r01->r02: recall [0.0, 0.67, 0.67] precision [0.0, 0.44, 0.44] pred counts [0, 9, 9]  confusion [[0, 3, 3], [0, 4, 2], [0, 2, 4]]
+  B2 r01->r03: recall [0.0, 1.0, 0.0] precision [0.0, 0.33, 0.0] pred counts [0, 18, 0]  confusion [[0, 6, 0], [0, 6, 0], [0, 6, 0]]
+  B2 r02->r01: recall [0.0, 0.33, 0.83] precision [0.0, 0.33, 0.45] pred counts [1, 6, 11]  confusion [[0, 3, 3], [1, 2, 3], [0, 1, 5]]
+  B2 r02->r03: recall [0.17, 0.5, 0.0] precision [0.12, 0.33, 0.0] pred counts [8, 9, 1]  confusion [[1, 4, 1], [3, 3, 0], [4, 2, 0]]
+  B2 r03->r01: recall [0.5, 0.0, 0.5] precision [0.33, 0.0, 0.43] pred counts [9, 2, 7]  confusion [[3, 2, 1], [3, 0, 3], [3, 0, 3]]
+  B2 r03->r02: recall [0.5, 0.17, 0.83] precision [0.43, 1.0, 0.5] pred counts [7, 1, 10]  confusion [[3, 0, 3], [3, 1, 2], [1, 0, 5]]
+  B3 r01->r02: recall [0.0, 1.0, 0.0] precision [0.0, 0.33, 0.0] pred counts [0, 18, 0]  confusion [[0, 6, 0], [0, 6, 0], [0, 6, 0]]
+  B3 r01->r03: recall [0.0, 1.0, 0.0] precision [0.0, 0.33, 0.0] pred counts [0, 18, 0]  confusion [[0, 6, 0], [0, 6, 0], [0, 6, 0]]
+  B3 r02->r01: recall [0.0, 0.33, 0.83] precision [0.0, 0.4, 0.38] pred counts [0, 5, 13]  confusion [[0, 2, 4], [0, 2, 4], [0, 1, 5]]
+  B3 r02->r03: recall [0.5, 0.5, 0.0] precision [0.3, 0.38, 0.0] pred counts [10, 8, 0]  confusion [[3, 3, 0], [3, 3, 0], [4, 2, 0]]
+  B3 r03->r01: recall [0.5, 0.0, 0.67] precision [0.43, 0.0, 0.4] pred counts [7, 1, 10]  confusion [[3, 1, 2], [2, 0, 4], [2, 0, 4]]
+  B3 r03->r02: recall [0.5, 0.17, 0.83] precision [0.38, 1.0, 0.56] pred counts [8, 1, 9]  confusion [[3, 0, 3], [4, 1, 1], [1, 0, 5]]
+
+paired bootstrap over recordings, accuracy difference vs A (95% interval; each recording is tested in 2 directions):
+  B1 - A: -3.7 pts  [-10.2, +1.9]  over 54 recordings
+  B2 - A: +0.0 pts  [-9.3, +10.2]  over 54 recordings
+  B3 - A: +0.9 pts  [-7.4, +8.3]  over 54 recordings
+
+chance = 33.3%. With 54 distinct test recordings (each tested in 2 directions) a mean accuracy must exceed about 44% to be distinguishable from chance (one-sided 95%).
+A difference between models is only meaningful if the bootstrap interval excludes 0.

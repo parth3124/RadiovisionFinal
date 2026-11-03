@@ -1,0 +1,127 @@
+
+====================================================================================================
+r02  empty   link=link   file=/tmp/val/dataset_room/empty/r02_05_empty/csi_link.npz
+SCHEMA  packets 585, csi shape [585, 384], dtypes {'host_t': 'float64', 'seq': 'uint32', 'ts_us': 'uint32', 'rssi': 'int8', 'csi': 'int8', 'csi_len': 'int16'}
+        meta csi_samples 585 (match=True), meta malformed_total (cumulative since reader start) 3
+TYPES   csi_len counts {256: 30, 384: 555}, type changes along the recording: 56, nonzero padding packets: 0
+TIMING  host span 9.992 s (58.4 Hz) | radio ts_us span 9.954 s (58.7 Hz) | apparent host-vs-radio drift -62.0 ppm (a linear fit cannot tell clock drift from steadily growing delay)
+        dt ms [p5,p50,p95,max]: host [13.24, 17.26, 19.56, 38.08]   radio [10.76, 16.41, 27.48, 34.72]   (dups host 0, radio reorder 0)
+        host_t minus radio-clock fit (ms): {'std': 20.1, 'p50': 46.73, 'p95': 75.54, 'max': 93.31}   median first 1 s vs last 1 s: [20.4, 47.59]
+LOSS    seq 291284..291978: 110 gap events, 110 missing = 15.8% of produced records; burst sizes {1: 110}; offered rate 69.6 Hz
+RSSI    dBm min -52 max -48 mean -50.91 sd 0.72 distinct 4; mean by csi_len {256: -48.0, 384: -51.07}
+I/Q     len 256 (30 packets), layout signature 256:[0-5,32,59-63]|[0-3,32,61-63], between-block mean-profile corr {'b0_b1': 0.999}
+          block 0: null subcarriers [0-5,32,59-63] valid 52, mean amp 11.55, clipped 0.0%, smoothness(aligned/shifted-by-1) 0.95/1.184, packet-gain sd(log) 0.061
+            phase: adjacent-subcarrier step circ-mean -0.007 rad (sd across packets 0.003), within-packet R 0.995, per-packet mean-phase R 0.103, per-subcarrier phase R over time 0.103
+          block 1: null subcarriers [0-3,32,61-63] valid 56, mean amp 24.85, clipped 0.0%, smoothness(aligned/shifted-by-1) 1.291/2.052, packet-gain sd(log) 0.28
+            phase: adjacent-subcarrier step circ-mean -0.0106 rad (sd across packets 0.004), within-packet R 0.994, per-packet mean-phase R 0.166, per-subcarrier phase R over time 0.166
+I/Q     len 384 (555 packets), layout signature 384:[0-5,32,59-63]|[0-1,59-63]|[0-5,63], between-block mean-profile corr {'b0_b1': -0.947, 'b0_b2': 0.998, 'b1_b2': -0.931}
+          block 0: null subcarriers [0-5,32,59-63] valid 52, mean amp 8.03, clipped 0.0%, smoothness(aligned/shifted-by-1) 0.568/0.773, packet-gain sd(log) 0.066
+            phase: adjacent-subcarrier step circ-mean -0.0082 rad (sd across packets 0.003), within-packet R 0.996, per-packet mean-phase R 0.037, per-subcarrier phase R over time 0.038
+          block 1: null subcarriers [0-1,59-63] valid 57, mean amp 51.52, clipped 0.0%, smoothness(aligned/shifted-by-1) 2.779/3.626, packet-gain sd(log) 0.116
+            phase: adjacent-subcarrier step circ-mean -0.0091 rad (sd across packets 0.005), within-packet R 0.994, per-packet mean-phase R 0.009, per-subcarrier phase R over time 0.009
+          block 2: null subcarriers [0-5,63] valid 57, mean amp 41.61, clipped 0.001%, smoothness(aligned/shifted-by-1) 2.525/3.281, packet-gain sd(log) 0.136
+            phase: adjacent-subcarrier step circ-mean -0.0086 rad (sd across packets 0.004), within-packet R 0.994, per-packet mean-phase R 0.014, per-subcarrier phase R over time 0.016
+FLAGS   
+        - MIXED_TYPES: {256: '5%', 384: '95%'} - layouts differ (see block table)
+        - COMMON_LEN_FILTER: existing pipeline drops 30 packets (5.1%) by keeping only csi_len=384
+        - SEQ_LOSS: 15.8% (110 records never stored; max burst 1)
+        - HOST_CLOCK: host_t departs from the radio clock (p95 75.54 ms): use ts_us for temporal/spectral work
+        - IRREGULAR_SAMPLING: irregular sampling (ts_us dt p95/p50 = 1.67): resample on ts_us before FFT/Doppler
+        - LOW_RATE: effective rate 58.7 Hz (Nyquist 29 Hz)
+        - PHASE_OFFSET_RANDOM: len 256 block 0: raw per-packet phase offset is not stable (R=0.103) -> sanitisation needed
+        - PHASE_OFFSET_RANDOM: len 256 block 1: raw per-packet phase offset is not stable (R=0.166) -> sanitisation needed
+        - PHASE_OFFSET_RANDOM: len 384 block 0: raw per-packet phase offset is not stable (R=0.037) -> sanitisation needed
+        - PHASE_OFFSET_RANDOM: len 384 block 1: raw per-packet phase offset is not stable (R=0.009) -> sanitisation needed
+        - PHASE_OFFSET_RANDOM: len 384 block 2: raw per-packet phase offset is not stable (R=0.014) -> sanitisation needed
+
+====================================================================================================
+r02  obj_Z1   link=link   file=/tmp/val/dataset_room/obj_Z1/r02_27_obj_Z1/csi_link.npz
+SCHEMA  packets 623, csi shape [623, 384], dtypes {'host_t': 'float64', 'seq': 'uint32', 'ts_us': 'uint32', 'rssi': 'int8', 'csi': 'int8', 'csi_len': 'int16'}
+        meta csi_samples 623 (match=True), meta malformed_total (cumulative since reader start) 8
+TYPES   csi_len counts {128: 60, 256: 25, 384: 538}, type changes along the recording: 140, nonzero padding packets: 0
+TIMING  host span 9.998 s (62.2 Hz) | radio ts_us span 10.462 s (59.5 Hz) | apparent host-vs-radio drift -54142.0 ppm (a linear fit cannot tell clock drift from steadily growing delay)
+        dt ms [p5,p50,p95,max]: host [5.83, 17.25, 18.5, 19.04]   radio [10.12, 15.68, 25.05, 36.48]   (dups host 0, radio reorder 0)
+        host_t minus radio-clock fit (ms): {'std': 102.39, 'p50': 164.39, 'p95': 312.52, 'max': 338.19}   median first 1 s vs last 1 s: [37.79, 46.33]
+LOSS    seq 359903..360612: 87 gap events, 87 missing = 12.3% of produced records; burst sizes {1: 87}; offered rate 71.0 Hz
+RSSI    dBm min -65 max -57 mean -62.29 sd 1.65 distinct 9; mean by csi_len {128: -58.23, 256: -60.44, 384: -62.83}
+I/Q     len 128 (60 packets), layout signature 128:[0-5,32,59-63], between-block mean-profile corr {}
+          block 0: null subcarriers [0-5,32,59-63] valid 52, mean amp 10.21, clipped 0.0%, smoothness(aligned/shifted-by-1) 1.42/1.543, packet-gain sd(log) 0.504
+            phase: adjacent-subcarrier step circ-mean -0.005 rad (sd across packets 0.033), within-packet R 0.986, per-packet mean-phase R 0.117, per-subcarrier phase R over time 0.154
+I/Q     len 256 (25 packets), layout signature 256:[0-5,32,59-63]|[0-3,32,61-63], between-block mean-profile corr {'b0_b1': 0.999}
+          block 0: null subcarriers [0-5,32,59-63] valid 52, mean amp 4.58, clipped 0.0%, smoothness(aligned/shifted-by-1) 0.353/0.406, packet-gain sd(log) 0.785
+            phase: adjacent-subcarrier step circ-mean 0.0035 rad (sd across packets 0.024), within-packet R 0.974, per-packet mean-phase R 0.303, per-subcarrier phase R over time 0.219
+          block 1: null subcarriers [0-3,32,61-63] valid 56, mean amp 9.08, clipped 0.0%, smoothness(aligned/shifted-by-1) 0.753/0.883, packet-gain sd(log) 0.808
+            phase: adjacent-subcarrier step circ-mean 0.0015 rad (sd across packets 0.025), within-packet R 0.955, per-packet mean-phase R 0.057, per-subcarrier phase R over time 0.192
+I/Q     len 384 (538 packets), layout signature 384:[0-5,32,59-63]|[0-1,59-63]|[0-5,63], between-block mean-profile corr {'b0_b1': -0.816, 'b0_b2': 0.999, 'b1_b2': -0.819}
+          block 0: null subcarriers [0-5,32,59-63] valid 52, mean amp 3.71, clipped 0.0%, smoothness(aligned/shifted-by-1) 0.409/0.489, packet-gain sd(log) 0.096
+            phase: adjacent-subcarrier step circ-mean 0.0097 rad (sd across packets 0.024), within-packet R 0.979, per-packet mean-phase R 0.203, per-subcarrier phase R over time 0.145
+          block 1: null subcarriers [0-1,59-63] valid 57, mean amp 50.52, clipped 0.0%, smoothness(aligned/shifted-by-1) 3.069/4.019, packet-gain sd(log) 0.327
+            phase: adjacent-subcarrier step circ-mean -0.0086 rad (sd across packets 0.008), within-packet R 0.994, per-packet mean-phase R 0.022, per-subcarrier phase R over time 0.023
+          block 2: null subcarriers [0-5,63] valid 57, mean amp 16.69, clipped 0.0%, smoothness(aligned/shifted-by-1) 1.702/2.139, packet-gain sd(log) 0.331
+            phase: adjacent-subcarrier step circ-mean 0.0184 rad (sd across packets 0.021), within-packet R 0.979, per-packet mean-phase R 0.036, per-subcarrier phase R over time 0.073
+FLAGS   
+        - MIXED_TYPES: {128: '10%', 256: '4%', 384: '86%'} - layouts differ (see block table)
+        - COMMON_LEN_FILTER: existing pipeline drops 85 packets (13.6%) by keeping only csi_len=384
+        - SEQ_LOSS: 12.3% (87 records never stored; max burst 1)
+        - HOST_CLOCK: host_t departs from the radio clock (p95 312.52 ms): use ts_us for temporal/spectral work
+        - IRREGULAR_SAMPLING: irregular sampling (ts_us dt p95/p50 = 1.6): resample on ts_us before FFT/Doppler
+        - LOW_RATE: effective rate 59.5 Hz (Nyquist 30 Hz)
+        - PHASE_OFFSET_RANDOM: len 128 block 0: raw per-packet phase offset is not stable (R=0.117) -> sanitisation needed
+        - PHASE_OFFSET_RANDOM: len 256 block 0: raw per-packet phase offset is not stable (R=0.303) -> sanitisation needed
+        - PHASE_OFFSET_RANDOM: len 256 block 1: raw per-packet phase offset is not stable (R=0.057) -> sanitisation needed
+        - PHASE_OFFSET_RANDOM: len 384 block 0: raw per-packet phase offset is not stable (R=0.203) -> sanitisation needed
+        - PHASE_OFFSET_RANDOM: len 384 block 1: raw per-packet phase offset is not stable (R=0.022) -> sanitisation needed
+        - PHASE_OFFSET_RANDOM: len 384 block 2: raw per-packet phase offset is not stable (R=0.036) -> sanitisation needed
+
+====================================================================================================
+r02  person_Z1   link=link   file=/tmp/val/dataset_room/person_Z1/r02_17_person_Z1/csi_link.npz
+SCHEMA  packets 579, csi shape [579, 384], dtypes {'host_t': 'float64', 'seq': 'uint32', 'ts_us': 'uint32', 'rssi': 'int8', 'csi': 'int8', 'csi_len': 'int16'}
+        meta csi_samples 579 (match=True), meta malformed_total (cumulative since reader start) 3
+TYPES   csi_len counts {256: 21, 384: 558}, type changes along the recording: 40, nonzero padding packets: 0
+TIMING  host span 9.991 s (57.9 Hz) | radio ts_us span 9.977 s (57.9 Hz) | apparent host-vs-radio drift -608.0 ppm (a linear fit cannot tell clock drift from steadily growing delay)
+        dt ms [p5,p50,p95,max]: host [15.9, 17.42, 18.79, 19.48]   radio [10.09, 19.07, 23.75, 38.33]   (dups host 0, radio reorder 0)
+        host_t minus radio-clock fit (ms): {'std': 19.4, 'p50': 47.89, 'p95': 79.89, 'max': 94.64}   median first 1 s vs last 1 s: [16.73, 47.81]
+LOSS    seq 320334..321111: 199 gap events, 199 missing = 25.6% of produced records; burst sizes {1: 199}; offered rate 77.9 Hz
+RSSI    dBm min -56 max -52 mean -55.35 sd 0.74 distinct 5; mean by csi_len {256: -52.62, 384: -55.45}
+I/Q     len 256 (21 packets), layout signature 256:[0-5,32,59-63]|[0-3,32,61-63], between-block mean-profile corr {'b0_b1': 0.985}
+          block 0: null subcarriers [0-5,32,59-63] valid 52, mean amp 4.93, clipped 0.0%, smoothness(aligned/shifted-by-1) 0.293/0.377, packet-gain sd(log) 0.718
+            phase: adjacent-subcarrier step circ-mean 0.0056 rad (sd across packets 0.005), within-packet R 0.986, per-packet mean-phase R 0.17, per-subcarrier phase R over time 0.158
+          block 1: null subcarriers [0-3,32,61-63] valid 56, mean amp 12.48, clipped 0.0%, smoothness(aligned/shifted-by-1) 0.739/0.951, packet-gain sd(log) 0.902
+            phase: adjacent-subcarrier step circ-mean 0.0094 rad (sd across packets 0.006), within-packet R 0.983, per-packet mean-phase R 0.331, per-subcarrier phase R over time 0.324
+I/Q     len 384 (558 packets), layout signature 384:[0-5,32,59-63]|[0-1,59-63]|[0-5,63], between-block mean-profile corr {'b0_b1': -0.057, 'b0_b2': 0.993, 'b1_b2': -0.024}
+          block 0: null subcarriers [0-5,32,59-63] valid 52, mean amp 8.63, clipped 0.0%, smoothness(aligned/shifted-by-1) 0.506/0.788, packet-gain sd(log) 0.06
+            phase: adjacent-subcarrier step circ-mean 0.0067 rad (sd across packets 0.002), within-packet R 0.996, per-packet mean-phase R 0.021, per-subcarrier phase R over time 0.022
+          block 1: null subcarriers [0-1,59-63] valid 57, mean amp 50.29, clipped 0.0%, smoothness(aligned/shifted-by-1) 2.373/3.168, packet-gain sd(log) 0.099
+            phase: adjacent-subcarrier step circ-mean 0.0011 rad (sd across packets 0.003), within-packet R 0.996, per-packet mean-phase R 0.026, per-subcarrier phase R over time 0.025
+          block 2: null subcarriers [0-5,63] valid 57, mean amp 43.96, clipped 0.0%, smoothness(aligned/shifted-by-1) 2.212/3.066, packet-gain sd(log) 0.108
+            phase: adjacent-subcarrier step circ-mean 0.0054 rad (sd across packets 0.004), within-packet R 0.995, per-packet mean-phase R 0.019, per-subcarrier phase R over time 0.018
+FLAGS   
+        - MIXED_TYPES: {256: '4%', 384: '96%'} - layouts differ (see block table)
+        - COMMON_LEN_FILTER: existing pipeline drops 21 packets (3.6%) by keeping only csi_len=384
+        - SEQ_LOSS: 25.6% (199 records never stored; max burst 1)
+        - HOST_CLOCK: host_t departs from the radio clock (p95 79.89 ms): use ts_us for temporal/spectral work
+        - LOW_RATE: effective rate 57.9 Hz (Nyquist 29 Hz)
+        - PHASE_OFFSET_RANDOM: len 256 block 0: raw per-packet phase offset is not stable (R=0.17) -> sanitisation needed
+        - PHASE_OFFSET_RANDOM: len 256 block 1: raw per-packet phase offset is not stable (R=0.331) -> sanitisation needed
+        - PHASE_OFFSET_RANDOM: len 384 block 0: raw per-packet phase offset is not stable (R=0.021) -> sanitisation needed
+        - PHASE_OFFSET_RANDOM: len 384 block 1: raw per-packet phase offset is not stable (R=0.026) -> sanitisation needed
+        - PHASE_OFFSET_RANDOM: len 384 block 2: raw per-packet phase offset is not stable (R=0.019) -> sanitisation needed
+
+====================================================================================================
+SUMMARY: 3 file(s)
+     session        label            n   rate_ts_hz     loss_pct   pct_len128   pct_len256   pct_len384 dropped_by_common_len_pct host_resid_p95_ms    rssi_mean      n_flags
+         r02        empty          585         58.7         15.8          0.0          5.1         94.9          5.1        75.54       -50.91           11
+         r02       obj_Z1          623         59.5         12.3          9.6          4.0         86.4         13.6       312.52       -62.29           12
+         r02    person_Z1          579         57.9         25.6          0.0          3.6         96.4          3.6        79.89       -55.35           10
+LAYOUT SIGNATURES (csi_len: null subcarriers per 128-value block) - count of recordings:
+     3 x 256:[0-5,32,59-63]|[0-3,32,61-63]
+     3 x 384:[0-5,32,59-63]|[0-1,59-63]|[0-5,63]
+     1 x 128:[0-5,32,59-63]
+FLAG FREQUENCY:
+    16 x PHASE_OFFSET_RANDOM
+     3 x MIXED_TYPES
+     3 x COMMON_LEN_FILTER
+     3 x SEQ_LOSS
+     3 x HOST_CLOCK
+     3 x LOW_RATE
+     2 x IRREGULAR_SAMPLING

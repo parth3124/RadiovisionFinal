@@ -1,0 +1,35 @@
+132 recordings analysed (384-type packets, >= 100 each)
+
+TEMPORAL PHASE STABILITY R (median over recordings; 1 = stable, ~0 = random) per session x condition x block
+session condition  blk   n        raw        cpo  cpo_slope        ref  jump_raw jump_cpo_sl  R10_cpo
+r01     empty        0   8      0.129      0.942      0.943      0.922     0.442       0.002    0.653
+r01     empty        1   8      0.038      0.993      0.988      0.985     0.490       0.000    0.981
+r01     empty        2   8      0.062      0.971      0.946      0.939     0.489       0.001    0.793
+r01     obj          0  18      0.090      0.993      0.993      0.991     0.472       0.000    0.961
+r01     obj          1  18      0.031      0.995      0.989      0.990     0.487       0.000    0.988
+r01     obj          2  18      0.035      0.989      0.977      0.991     0.484       0.000    0.972
+r01     person       0  18      0.084      0.984      0.978      0.983     0.471       0.000    0.878
+r01     person       1  18      0.035      0.994      0.993      0.988     0.495       0.000    0.986
+r01     person       2  18      0.040      0.983      0.970      0.984     0.493       0.000    0.935
+r02     empty        0   8      0.067      0.996      0.996      0.994     0.480       0.000    0.992
+r02     empty        1   8      0.037      0.995      0.991      0.988     0.503       0.000    0.990
+r02     empty        2   8      0.040      0.994      0.988      0.991     0.506       0.000    0.986
+r02     obj          0  18      0.100      0.993      0.993      0.988     0.478       0.000    0.982
+r02     obj          1  18      0.030      0.993      0.991      0.987     0.504       0.000    0.985
+r02     obj          2  18      0.050      0.990      0.979      0.989     0.499       0.000    0.977
+r02     person       0  18      0.065      0.997      0.997      0.995     0.500       0.000    0.994
+r02     person       1  18      0.028      0.996      0.993      0.990     0.501       0.000    0.990
+r02     person       2  18      0.028      0.995      0.993      0.993     0.500       0.000    0.989
+r03     empty        0   8      0.057      0.998      0.998      0.996     0.486       0.000    0.994
+r03     empty        1   8      0.034      0.994      0.990      0.985     0.499       0.000    0.987
+r03     empty        2   8      0.031      0.994      0.992      0.991     0.496       0.000    0.987
+r03     obj          0  18      0.044      0.997      0.997      0.995     0.489       0.000    0.989
+r03     obj          1  18      0.036      0.992      0.989      0.984     0.500       0.000    0.984
+r03     obj          2  18      0.022      0.993      0.991      0.990     0.502       0.000    0.985
+r03     person       0  18      0.056      0.997      0.997      0.996     0.479       0.000    0.994
+r03     person       1  18      0.043      0.993      0.990      0.985     0.507       0.000    0.984
+r03     person       2  18      0.045      0.995      0.993      0.992     0.509       0.000    0.987
+
+INTER-BLOCK COMMON-PHASE CONCENTRATION Rcp (median over all recordings): Rcp_01=0.766, Rcp_02=0.769, Rcp_12=0.990
+  (high = blocks share the per-packet offset -> relative phase between blocks usable; ~0 = independent offsets)
+per-packet adjacent-subcarrier slope spread (circular sd, rad): block0=0.002, block1=0.008, block2=0.009

@@ -1,0 +1,71 @@
+{
+  "args": {
+    "data": "dataset_room",
+    "out": "results_temporal",
+    "models": [
+      "A",
+      "B1",
+      "B2",
+      "B3",
+      "C"
+    ],
+    "norms": [
+      "packet",
+      "none"
+    ],
+    "seeds": [
+      0
+    ],
+    "max_epochs": 3,
+    "min_epochs": 2,
+    "lr": 0.002,
+    "wd": 0.01,
+    "batch": 6,
+    "c_arch": "compact",
+    "device": "cpu",
+    "smoke": true,
+    "inspect": false
+  },
+  "constants": {
+    "FS": 50.0,
+    "SEG_SEC": 8.0,
+    "T": 400,
+    "CROP": 360,
+    "TRIM_SEC": 0.5,
+    "LIVE_FRAC": 0.05,
+    "MAX_GAP_SEC": 0.5,
+    "MIN_PACKETS": 200
+  },
+  "sessions": [
+    "r01",
+    "r02",
+    "r03"
+  ],
+  "directions": [
+    [
+      "r01",
+      "r02"
+    ],
+    [
+      "r01",
+      "r03"
+    ],
+    [
+      "r02",
+      "r01"
+    ],
+    [
+      "r02",
+      "r03"
+    ],
+    [
+      "r03",
+      "r01"
+    ],
+    [
+      "r03",
+      "r02"
+    ]
+  ],
+  "numpy": "2.5.4"
+}

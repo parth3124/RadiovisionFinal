@@ -1,0 +1,4 @@
+label,session,condition,drift_ppm,dropped_by_common_len_pct,host_dups,host_resid_p95_ms,len_changes,link,loss_pct,max_burst,meta_samples_match,n,n_flags,offered_rate_hz,path,pct_len128,pct_len256,pct_len384,rate_host_hz,rate_ts_hz,rssi_max,rssi_mean,rssi_min,rssi_sd,ts_dt_p95_over_p50,ts_reorder,zone
+empty,r02,empty,-62.0,5.1,0,75.54,56,link,15.8,1,True,585,11,69.6,/tmp/val/dataset_room/empty/r02_05_empty/csi_link.npz,0.0,5.1,94.9,58.4,58.7,-48,-50.91,-52,0.72,1.67,0,
+obj_Z1,r02,obj,-54142.0,13.6,0,312.52,140,link,12.3,1,True,623,12,71.0,/tmp/val/dataset_room/obj_Z1/r02_27_obj_Z1/csi_link.npz,9.6,4.0,86.4,62.2,59.5,-57,-62.29,-65,1.65,1.6,0,Z1
+person_Z1,r02,person,-608.0,3.6,0,79.89,40,link,25.6,1,True,579,10,77.9,/tmp/val/dataset_room/person_Z1/r02_17_person_Z1/csi_link.npz,0.0,3.6,96.4,57.9,57.9,-52,-55.35,-56,0.74,1.25,0,Z1

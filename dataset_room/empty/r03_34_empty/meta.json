@@ -1,0 +1,29 @@
+{
+  "label": "empty",
+  "condition": "empty",
+  "zone": null,
+  "object_present": 0,
+  "human_present": 0,
+  "motion": 0,
+  "session": "r03",
+  "protocol_line": 34,
+  "created": "2026-10-29T03:06:50",
+  "duration_s": 10.01,
+  "links": [
+    "rx1"
+  ],
+  "ports": [
+    "/dev/cu.usbmodem101"
+  ],
+  "csi_samples": {
+    "rx1": 586
+  },
+  "csi_rate_hz": {
+    "rx1": 58.6
+  },
+  "weak_links": [],
+  "csi_malformed_total": {
+    "rx1": 5
+  },
+  "time_base": "time.monotonic() on the Mac, shared by all links"
+}
