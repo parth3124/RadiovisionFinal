@@ -1,0 +1,44 @@
+{
+ "tx_boot": "616c1222",
+ "seq_first": 4008,
+ "seq_last": 25456,
+ "n_packets": 21449,
+ "rx_ids": [
+  1
+ ],
+ "tx_rate_hz": 100.0,
+ "dir_fits": {
+  "sessions/rx1_revised_test": {
+   "a": 1467461.7566299045,
+   "b": 0.9999391095293616,
+   "latency_ms_p50": 1.5925448387861252,
+   "latency_ms_p95": 4.4807608239352685,
+   "drift_ppm": -60.890470638397254
+  }
+ },
+ "events": [
+  {
+   "host_t": 1467587.438062583,
+   "wall": 1793625130.329864,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem101"
+   ],
+   "tx_t": 125.68908594619442,
+   "tx_seq_est": 16576.908594619443,
+   "dir": "sessions/rx1_revised_test"
+  },
+  {
+   "host_t": 1467676.228256458,
+   "wall": 1793625219.119835,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 25455,
+   "tx_t": 214.4846866269651,
+   "tx_seq_est": 25456.0,
+   "dir": "sessions/rx1_revised_test"
+  }
+ ]
+}

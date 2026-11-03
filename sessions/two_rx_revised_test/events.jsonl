@@ -1,0 +1,2 @@
+{"host_t": 1468168.59147075, "wall": 1793625711.5037389, "kind": "session_start", "latest_tx_boot": null, "latest_tx_seq": null, "ports": ["/dev/cu.usbmodem101", "/dev/cu.usbmodem1101"]}
+{"host_t": 1468267.540661916, "wall": 1793625810.453078, "kind": "session_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 84588}

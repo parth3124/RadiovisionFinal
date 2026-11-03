@@ -1,0 +1,29 @@
+
+{
+  "zones": ["A", "B", "C"],
+  "data_dir": "dataset_zones",
+  "model_dir": "runs_zones/baseline",
+  "fs": 100.0,
+  "window_sec": 1.0,
+  "stride_sec": 0.25,
+  "trim_sec": 0.2,
+  "boundary_guard_sec": 0.5,
+  "min_label_purity": 0.9,
+  "min_recorded_samples": 300,
+  "features": ["mean", "std", "motion"],
+  "packet_norm": false,
+  "classifier": {
+    "type": "logreg",
+    "C": 1.0,
+    "n_estimators": 300,
+    "seed": 0
+  },
+  "smoothing": {
+    "method": "hmm",
+    "majority_windows": 5,
+    "p_stay": 0.9,
+    "p_skip": 0.01,
+    "adjacency": [["A", "B"], ["B", "C"]],
+    "emission_power": 1.0
+  }
+}

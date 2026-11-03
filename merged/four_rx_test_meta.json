@@ -1,0 +1,271 @@
+{
+ "tx_boot": "616c1222",
+ "seq_first": 411636,
+ "seq_last": 1375077,
+ "n_packets": 963442,
+ "rx_ids": [
+  1,
+  2,
+  3,
+  4
+ ],
+ "tx_rate_hz": 180.43849394211983,
+ "dir_fits": {
+  "sessions/four_rx_laptop1": {
+   "a": 1470281.536277694,
+   "b": 0.9999844797286114,
+   "latency_ms_p50": 1.4786107931286097,
+   "latency_ms_p95": 4.402577481232578,
+   "drift_ppm": -15.520271388624884
+  },
+  "sessions/four_rx_laptop2": {
+   "a": 814438.7308663647,
+   "b": 0.9999846432853937,
+   "latency_ms_p50": 0.7912619039416313,
+   "latency_ms_p95": 4.1108034318313,
+   "drift_ppm": -15.35671460628496
+  }
+ },
+ "events": [
+  {
+   "host_t": 1474468.339836708,
+   "wall": 1793637562.584607,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem101",
+    "/dev/cu.usbmodem1101"
+   ],
+   "tx_t": 4186.868540350123,
+   "tx_seq_est": 1259819.5836350124,
+   "dir": "sessions/four_rx_laptop1"
+  },
+  {
+   "host_t": 1474483.166950375,
+   "wall": 1793637577.411673,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 1261302,
+   "tx_t": 4201.69588414156,
+   "tx_seq_est": 1261302.318014156,
+   "dir": "sessions/four_rx_laptop1"
+  },
+  {
+   "host_t": 1474592.892790291,
+   "wall": 1793637687.137156,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem101",
+    "/dev/cu.usbmodem1101"
+   ],
+   "tx_t": 4311.423427058723,
+   "tx_seq_est": 1272275.0723058723,
+   "dir": "sessions/four_rx_laptop1"
+  },
+  {
+   "host_t": 1474709.989649875,
+   "wall": 1793637804.2336352,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 1283984,
+   "tx_t": 4428.522104046066,
+   "tx_seq_est": 1283984.9400046065,
+   "dir": "sessions/four_rx_laptop1"
+  },
+  {
+   "host_t": 1475312.135067833,
+   "wall": 1793638406.3510861,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem101",
+    "/dev/cu.usbmodem1101"
+   ],
+   "tx_t": 5030.676867609213,
+   "tx_seq_est": 1344200.4163609215,
+   "dir": "sessions/four_rx_laptop1"
+  },
+  {
+   "host_t": 1475317.93461425,
+   "wall": 1793638412.15057,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 1344780,
+   "tx_t": 5036.476504038226,
+   "tx_seq_est": 1344780.3800038227,
+   "dir": "sessions/four_rx_laptop1"
+  },
+  {
+   "host_t": 1475329.189567708,
+   "wall": 1793638423.4054139,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem101",
+    "/dev/cu.usbmodem1101"
+   ],
+   "tx_t": 5047.731632178844,
+   "tx_seq_est": 1345905.8928178845,
+   "dir": "sessions/four_rx_laptop1"
+  },
+  {
+   "host_t": 1475443.18799225,
+   "wall": 1793638537.402913,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 1357305,
+   "tx_t": 5161.7318260349275,
+   "tx_seq_est": 1357305.9122034928,
+   "dir": "sessions/four_rx_laptop1"
+  },
+  {
+   "host_t": 1475470.703446625,
+   "wall": 1793638564.918148,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem101",
+    "/dev/cu.usbmodem1101"
+   ],
+   "tx_t": 5189.247707463827,
+   "tx_seq_est": 1360057.5003463826,
+   "dir": "sessions/four_rx_laptop1"
+  },
+  {
+   "host_t": 1475620.903533833,
+   "wall": 1793638715.1170409,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 1375077,
+   "tx_t": 5339.450125854191,
+   "tx_seq_est": 1375077.0,
+   "dir": "sessions/four_rx_laptop1"
+  },
+  {
+   "host_t": 818622.701304833,
+   "wall": 1793637560.7833679,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem1101",
+    "/dev/cu.usbmodem1401"
+   ],
+   "tx_t": 4184.034691495047,
+   "tx_seq_est": 1259536.1987495048,
+   "dir": "sessions/four_rx_laptop2"
+  },
+  {
+   "host_t": 818624.3920595,
+   "wall": 1793637562.474123,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 1259705,
+   "tx_t": 4185.725472126806,
+   "tx_seq_est": 1259705.2768126808,
+   "dir": "sessions/four_rx_laptop2"
+  },
+  {
+   "host_t": 819466.350192458,
+   "wall": 1793638404.432255,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem1101",
+    "/dev/cu.usbmodem1401"
+   ],
+   "tx_t": 5027.696534994166,
+   "tx_seq_est": 1343902.3830994165,
+   "dir": "sessions/four_rx_laptop2"
+  },
+  {
+   "host_t": 819478.319307958,
+   "wall": 1793638416.401372,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 1345099,
+   "tx_t": 5039.665834303268,
+   "tx_seq_est": 1345099.3130303267,
+   "dir": "sessions/four_rx_laptop2"
+  },
+  {
+   "host_t": 819485.215085541,
+   "wall": 1793638423.297149,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem1101",
+    "/dev/cu.usbmodem1401"
+   ],
+   "tx_t": 5046.561717784389,
+   "tx_seq_est": 1345788.9013784388,
+   "dir": "sessions/four_rx_laptop2"
+  },
+  {
+   "host_t": 819591.509955541,
+   "wall": 1793638529.59202,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 1356418,
+   "tx_t": 5152.858220149423,
+   "tx_seq_est": 1356418.5516149423,
+   "dir": "sessions/four_rx_laptop2"
+  },
+  {
+   "host_t": 819617.857383625,
+   "wall": 1793638555.939446,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem1101",
+    "/dev/cu.usbmodem1401"
+   ],
+   "tx_t": 5179.206052849571,
+   "tx_seq_est": 1359053.3348849572,
+   "dir": "sessions/four_rx_laptop2"
+  },
+  {
+   "host_t": 819620.293678833,
+   "wall": 1793638558.375743,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 1359296,
+   "tx_t": 5181.642385471691,
+   "tx_seq_est": 1359296.968147169,
+   "dir": "sessions/four_rx_laptop2"
+  },
+  {
+   "host_t": 819621.777891625,
+   "wall": 1793638559.8599548,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem1101",
+    "/dev/cu.usbmodem1301"
+   ],
+   "tx_t": 5183.126621056571,
+   "tx_seq_est": 1359445.3917056571,
+   "dir": "sessions/four_rx_laptop2"
+  },
+  {
+   "host_t": 819777.888543833,
+   "wall": 1793638715.9706082,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 1375056,
+   "tx_t": 5339.239670648215,
+   "tx_seq_est": 1375056.6966648216,
+   "dir": "sessions/four_rx_laptop2"
+  }
+ ]
+}

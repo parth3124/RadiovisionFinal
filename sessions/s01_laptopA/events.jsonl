@@ -1,0 +1,63 @@
+{"host_t": 1487285.310271458, "wall": 1793652319.989543, "kind": "session_start", "latest_tx_boot": null, "latest_tx_seq": null, "ports": ["/dev/cu.usbmodem1401", "/dev/cu.usbmodem1101"]}
+{"host_t": 1487314.560417, "wall": 1793652349.239943, "kind": "session_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2738503}
+{"host_t": 1487763.938661125, "wall": 1793652798.6099, "kind": "session_start", "latest_tx_boot": null, "latest_tx_seq": null, "ports": ["/dev/cu.usbmodem1401", "/dev/cu.usbmodem1101"]}
+{"host_t": 1487777.971562333, "wall": 1793652812.642699, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2784845, "label": "B"}
+{"host_t": 1487923.380642166, "wall": 1793652958.0526059, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2799386, "label": "B"}
+{"host_t": 1487936.093054541, "wall": 1793652970.765104, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2800657}
+{"host_t": 1487971.372985916, "wall": 1793653006.045269, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2804185, "label": "A"}
+{"host_t": 1487981.590613791, "wall": 1793653016.262964, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2805207}
+{"host_t": 1488013.103485041, "wall": 1793653047.7760441, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2808358, "label": "C"}
+{"host_t": 1488022.856394208, "wall": 1793653057.529017, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2809333}
+{"host_t": 1488032.523407708, "wall": 1793653067.196094, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2810300, "label": "B"}
+{"host_t": 1488043.776561208, "wall": 1793653078.449323, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2811425}
+{"host_t": 1488053.535600291, "wall": 1793653088.208426, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2812401, "label": "As A"}
+{"host_t": 1488064.20973425, "wall": 1793653098.8826308, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2813468}
+{"host_t": 1488148.906690958, "wall": 1793653183.580148, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2821939, "label": "C"}
+{"host_t": 1488159.819552583, "wall": 1793653194.493082, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2823030}
+{"host_t": 1488175.7759435, "wall": 1793653210.4495769, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2824626, "label": "A"}
+{"host_t": 1488185.589331791, "wall": 1793653220.26303, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2825607}
+{"host_t": 1488197.866255291, "wall": 1793653232.540035, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2826835, "label": "B"}
+{"host_t": 1488208.311469333, "wall": 1793653242.985319, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2827879}
+{"host_t": 1488224.988195875, "wall": 1793653259.662155, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2829547, "label": "A"}
+{"host_t": 1488236.227547583, "wall": 1793653270.901582, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2830671}
+{"host_t": 1488247.878068333, "wall": 1793653282.5521789, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2831836, "label": "C"}
+{"host_t": 1488258.770516541, "wall": 1793653293.4446988, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2832925}
+{"host_t": 1488267.551846, "wall": 1793653302.2260869, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2833803, "label": "B"}
+{"host_t": 1488277.715997833, "wall": 1793653312.390306, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2834820}
+{"host_t": 1488291.956842791, "wall": 1793653326.6312451, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2836244, "label": "A"}
+{"host_t": 1488302.670187291, "wall": 1793653337.34466, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2837315}
+{"host_t": 1488317.3801305, "wall": 1793653352.0547001, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2838786, "label": "C"}
+{"host_t": 1488326.208203208, "wall": 1793653360.882831, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2839669}
+{"host_t": 1488344.161007875, "wall": 1793653378.835755, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2841464, "label": "B"}
+{"host_t": 1488354.022558375, "wall": 1793653388.69737, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2842451}
+{"host_t": 1488365.207026875, "wall": 1793653399.8819132, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2843569, "label": "C"}
+{"host_t": 1488377.225919083, "wall": 1793653411.900884, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2844771}
+{"host_t": 1488384.989699416, "wall": 1793653419.664715, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2845547, "label": "A"}
+{"host_t": 1488398.977233958, "wall": 1793653433.652343, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2846946}
+{"host_t": 1488411.26568275, "wall": 1793653445.940874, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2848175, "label": "B"}
+{"host_t": 1488423.524070916, "wall": 1793653458.1993432, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2849401}
+{"host_t": 1488430.187840166, "wall": 1793653464.863156, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2850067, "label": "B"}
+{"host_t": 1488441.969105833, "wall": 1793653476.6445, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2851245}
+{"host_t": 1488458.285274416, "wall": 1793653492.9607759, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2852877, "label": "C"}
+{"host_t": 1488468.978523625, "wall": 1793653503.6540952, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2853946}
+{"host_t": 1488473.215776875, "wall": 1793653507.891377, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2854370, "label": "C"}
+{"host_t": 1488484.61372525, "wall": 1793653519.289401, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2855510}
+{"host_t": 1488494.681328208, "wall": 1793653529.35707, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2856517, "label": "A"}
+{"host_t": 1488504.974362708, "wall": 1793653539.650173, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2857546}
+{"host_t": 1488510.166633333, "wall": 1793653544.8425431, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2858065, "label": "A"}
+{"host_t": 1488523.224915375, "wall": 1793653557.900846, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2859371}
+{"host_t": 1488537.502720375, "wall": 1793653572.1787462, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2860799, "label": "C"}
+{"host_t": 1488549.294872375, "wall": 1793653583.970975, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2861978}
+{"host_t": 1488557.173464083, "wall": 1793653591.849619, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2862766, "label": "B"}
+{"host_t": 1488569.846391458, "wall": 1793653604.522629, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2864033}
+{"host_t": 1488576.391666458, "wall": 1793653611.067949, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2864688, "label": "B"}
+{"host_t": 1488588.286267125, "wall": 1793653622.9626281, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2865877}
+{"host_t": 1488596.291965458, "wall": 1793653630.9683788, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2866678, "label": "A"}
+{"host_t": 1488608.591689833, "wall": 1793653643.268184, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2867908}
+{"host_t": 1488611.389148208, "wall": 1793653646.065662, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2868188, "label": "A"}
+{"host_t": 1488623.251040958, "wall": 1793653657.9276319, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2869374}
+{"host_t": 1488633.0832845, "wall": 1793653667.759941, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2870357, "label": "C"}
+{"host_t": 1488643.959432375, "wall": 1793653678.636161, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2871445}
+{"host_t": 1488646.058098833, "wall": 1793653680.734841, "kind": "trial_start", "latest_tx_boot": 1634472482, "latest_tx_seq": 2871655, "label": "C"}
+{"host_t": 1488658.580725291, "wall": 1793653693.2575512, "kind": "trial_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2872907}
+{"host_t": 1488743.375839125, "wall": 1793653778.043715, "kind": "session_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2881387}

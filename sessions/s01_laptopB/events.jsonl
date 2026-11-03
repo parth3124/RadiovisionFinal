@@ -1,0 +1,6 @@
+{"host_t": 829892.045346666, "wall": 1793652323.306083, "kind": "session_start", "latest_tx_boot": null, "latest_tx_seq": null, "ports": ["/dev/cu.usbmodem1101", "/dev/cu.usbmodem101"]}
+{"host_t": 829919.097845125, "wall": 1793652350.358582, "kind": "session_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2738515}
+{"host_t": 830114.842294583, "wall": 1793652546.10303, "kind": "session_start", "latest_tx_boot": null, "latest_tx_seq": null, "ports": ["/dev/cu.usbmodem1101", "/dev/cu.usbmodem101"]}
+{"host_t": 830125.066186333, "wall": 1793652556.326922, "kind": "session_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2759113}
+{"host_t": 830367.975894, "wall": 1793652799.23663, "kind": "session_start", "latest_tx_boot": null, "latest_tx_seq": null, "ports": ["/dev/cu.usbmodem1101", "/dev/cu.usbmodem101"]}
+{"host_t": 830907.052671041, "wall": 1793653817.969023, "kind": "session_end", "latest_tx_boot": 1634472482, "latest_tx_seq": 2885279}

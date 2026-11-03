@@ -1,0 +1,771 @@
+{
+ "tx_boot": "616c1222",
+ "seq_first": 2658656,
+ "seq_last": 2885279,
+ "n_packets": 226624,
+ "rx_ids": [
+  1,
+  2,
+  3,
+  4
+ ],
+ "tx_rate_hz": 100.0,
+ "dir_fits": {
+  "sessions/s01_laptopA": {
+   "a": 1486516.1016600092,
+   "b": 0.9999828215912718,
+   "latency_ms_p50": 1.2032906524837017,
+   "latency_ms_p95": 3.277589741628617,
+   "drift_ppm": -17.178408728169003
+  },
+  "sessions/s01_laptopB": {
+   "a": 829120.5647063327,
+   "b": 0.9999157085186894,
+   "latency_ms_p50": 49.31984166614711,
+   "latency_ms_p95": 66.87922490527853,
+   "drift_ppm": -84.29148131061659
+  }
+ },
+ "events": [
+  {
+   "host_t": 1487285.310271458,
+   "wall": 1793652319.989543,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem1401",
+    "/dev/cu.usbmodem1101"
+   ],
+   "tx_t": 769.2218254556814,
+   "tx_seq_est": 2735578.1825455683,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1487314.560417,
+   "wall": 1793652349.239943,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2738503,
+   "tx_t": 798.4724734772384,
+   "tx_seq_est": 2738503.2473477237,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1487763.938661125,
+   "wall": 1793652798.6099,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem1401",
+    "/dev/cu.usbmodem1101"
+   ],
+   "tx_t": 1247.8584373380536,
+   "tx_seq_est": 2783441.843733805,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1487777.971562333,
+   "wall": 1793652812.642699,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2784845,
+   "label": "B",
+   "tx_t": 1261.8915796130239,
+   "tx_seq_est": 2784845.1579613024,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1487923.380642166,
+   "wall": 1793652958.0526059,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2799386,
+   "label": "B",
+   "tx_t": 1407.303157385497,
+   "tx_seq_est": 2799386.31573855,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1487936.093054541,
+   "wall": 1793652970.765104,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2800657,
+   "tx_t": 1420.0157881432895,
+   "tx_seq_est": 2800657.578814329,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1487971.372985916,
+   "wall": 1793653006.045269,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2804185,
+   "label": "A",
+   "tx_t": 1455.2963255818402,
+   "tx_seq_est": 2804185.632558184,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1487981.590613791,
+   "wall": 1793653016.262964,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2805207,
+   "tx_t": 1465.5141289824844,
+   "tx_seq_est": 2805207.4128982485,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488013.103485041,
+   "wall": 1793653047.7760441,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2808358,
+   "label": "C",
+   "tx_t": 1497.027541582811,
+   "tx_seq_est": 2808358.7541582813,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488022.856394208,
+   "wall": 1793653057.529017,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2809333,
+   "tx_t": 1506.7806182921204,
+   "tx_seq_est": 2809334.061829212,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488032.523407708,
+   "wall": 1793653067.196094,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2810300,
+   "label": "B",
+   "tx_t": 1516.447797858768,
+   "tx_seq_est": 2810300.7797858766,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488043.776561208,
+   "wall": 1793653078.449323,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2811425,
+   "tx_t": 1527.7011446735062,
+   "tx_seq_est": 2811426.1144673508,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488053.535600291,
+   "wall": 1793653088.208426,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2812401,
+   "label": "As A",
+   "tx_t": 1537.4603514041785,
+   "tx_seq_est": 2812402.035140418,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488064.20973425,
+   "wall": 1793653098.8826308,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2813468,
+   "tx_t": 1548.1346687309579,
+   "tx_seq_est": 2813469.466873096,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488148.906690958,
+   "wall": 1793653183.580148,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2821939,
+   "label": "C",
+   "tx_t": 1632.8330804227558,
+   "tx_seq_est": 2821939.3080422757,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488159.819552583,
+   "wall": 1793653194.493082,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2823030,
+   "tx_t": 1643.746129516539,
+   "tx_seq_est": 2823030.612951654,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488175.7759435,
+   "wall": 1793653210.4495769,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2824626,
+   "label": "A",
+   "tx_t": 1659.702794543721,
+   "tx_seq_est": 2824626.279454372,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488185.589331791,
+   "wall": 1793653220.26303,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2825607,
+   "tx_t": 1669.51635141606,
+   "tx_seq_est": 2825607.635141606,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488197.866255291,
+   "wall": 1793653232.540035,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2826835,
+   "label": "B",
+   "tx_t": 1681.793485817694,
+   "tx_seq_est": 2826835.3485817695,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488208.311469333,
+   "wall": 1793653242.985319,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2827879,
+   "tx_t": 1692.238879294907,
+   "tx_seq_est": 2827879.887929491,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488224.988195875,
+   "wall": 1793653259.662155,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2829547,
+   "label": "A",
+   "tx_t": 1708.9158923214006,
+   "tx_seq_est": 2829547.58923214,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488236.227547583,
+   "wall": 1793653270.901582,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2830671,
+   "tx_t": 1720.1554371068712,
+   "tx_seq_est": 2830671.543710687,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488247.878068333,
+   "wall": 1793653282.5521789,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2831836,
+   "label": "C",
+   "tx_t": 1731.8061579978053,
+   "tx_seq_est": 2831836.6157997805,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488258.770516541,
+   "wall": 1793653293.4446988,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2832925,
+   "tx_t": 1742.698793324009,
+   "tx_seq_est": 2832925.879332401,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488267.551846,
+   "wall": 1793653302.2260869,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2833803,
+   "label": "B",
+   "tx_t": 1751.4802736346794,
+   "tx_seq_est": 2833804.027363468,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488277.715997833,
+   "wall": 1793653312.390306,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2834820,
+   "tx_t": 1761.6446000747933,
+   "tx_seq_est": 2834820.4600074794,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488291.956842791,
+   "wall": 1793653326.6312451,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2836244,
+   "label": "A",
+   "tx_t": 1775.8856896720472,
+   "tx_seq_est": 2836244.5689672045,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488302.670187291,
+   "wall": 1793653337.34466,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2837315,
+   "tx_t": 1786.5992182133539,
+   "tx_seq_est": 2837315.9218213353,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488317.3801305,
+   "wall": 1793653352.0547001,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2838786,
+   "label": "C",
+   "tx_t": 1801.309414120188,
+   "tx_seq_est": 2838786.9414120186,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488326.208203208,
+   "wall": 1793653360.882831,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2839669,
+   "tx_t": 1810.1376384829016,
+   "tx_seq_est": 2839669.7638482903,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488344.161007875,
+   "wall": 1793653378.835755,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2841464,
+   "label": "B",
+   "tx_t": 1828.0907515559927,
+   "tx_seq_est": 2841465.0751555995,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488354.022558375,
+   "wall": 1793653388.69737,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2842451,
+   "tx_t": 1837.9524714645659,
+   "tx_seq_est": 2842451.2471464565,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488365.207026875,
+   "wall": 1793653399.8819132,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2843569,
+   "label": "C",
+   "tx_t": 1849.1371320993212,
+   "tx_seq_est": 2843569.713209932,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488377.225919083,
+   "wall": 1793653411.900884,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2844771,
+   "tx_t": 1861.1562307761922,
+   "tx_seq_est": 2844771.6230776194,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488384.989699416,
+   "wall": 1793653419.664715,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2845547,
+   "label": "A",
+   "tx_t": 1868.920144480977,
+   "tx_seq_est": 2845548.014448098,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488398.977233958,
+   "wall": 1793653433.652343,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2846946,
+   "tx_t": 1882.9079193105597,
+   "tx_seq_est": 2846946.791931056,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488411.26568275,
+   "wall": 1793653445.940874,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2848175,
+   "label": "B",
+   "tx_t": 1895.1965792021329,
+   "tx_seq_est": 2848175.6579202134,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488423.524070916,
+   "wall": 1793653458.1993432,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2849401,
+   "tx_t": 1907.4551779514356,
+   "tx_seq_est": 2849401.5177951436,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488430.187840166,
+   "wall": 1793653464.863156,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2850067,
+   "label": "B",
+   "tx_t": 1914.119061676391,
+   "tx_seq_est": 2850067.906167639,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488441.969105833,
+   "wall": 1793653476.6445,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2851245,
+   "tx_t": 1925.900529730206,
+   "tx_seq_est": 2851246.052973021,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488458.285274416,
+   "wall": 1793653492.9607759,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2852877,
+   "label": "C",
+   "tx_t": 1942.2169786038319,
+   "tx_seq_est": 2852877.697860383,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488468.978523625,
+   "wall": 1793653503.6540952,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2853946,
+   "tx_t": 1952.9104115090786,
+   "tx_seq_est": 2853947.041150908,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488473.215776875,
+   "wall": 1793653507.891377,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2854370,
+   "label": "C",
+   "tx_t": 1957.147737549453,
+   "tx_seq_est": 2854370.7737549455,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488484.61372525,
+   "wall": 1793653519.289401,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2855510,
+   "tx_t": 1968.545881726404,
+   "tx_seq_est": 2855510.58817264,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488494.681328208,
+   "wall": 1793653529.35707,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2856517,
+   "label": "A",
+   "tx_t": 1978.613657632838,
+   "tx_seq_est": 2856517.365763284,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488504.974362708,
+   "wall": 1793653539.650173,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2857546,
+   "tx_t": 1988.906868953806,
+   "tx_seq_est": 2857546.6868953807,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488510.166633333,
+   "wall": 1793653544.8425431,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2858065,
+   "label": "A",
+   "tx_t": 1994.0992287754352,
+   "tx_seq_est": 2858065.9228775436,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488523.224915375,
+   "wall": 1793653557.900846,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2859371,
+   "tx_t": 2007.1577351417172,
+   "tx_seq_est": 2859371.7735141716,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488537.502720375,
+   "wall": 1793653572.1787462,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2860799,
+   "label": "C",
+   "tx_t": 2021.4357854159784,
+   "tx_seq_est": 2860799.578541598,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488549.294872375,
+   "wall": 1793653583.970975,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2861978,
+   "tx_t": 2033.228139989758,
+   "tx_seq_est": 2861978.813998976,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488557.173464083,
+   "wall": 1793653591.849619,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2862766,
+   "label": "B",
+   "tx_t": 2041.106867041892,
+   "tx_seq_est": 2862766.686704189,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488569.846391458,
+   "wall": 1793653604.522629,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2864033,
+   "tx_t": 2053.7800121213095,
+   "tx_seq_est": 2864034.0012121308,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488576.391666458,
+   "wall": 1793653611.067949,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2864688,
+   "label": "B",
+   "tx_t": 2060.325399560574,
+   "tx_seq_est": 2864688.5399560574,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488588.286267125,
+   "wall": 1793653622.9626281,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2865877,
+   "tx_t": 2072.220204561456,
+   "tx_seq_est": 2865878.0204561455,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488596.291965458,
+   "wall": 1793653630.9683788,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2866678,
+   "label": "A",
+   "tx_t": 2080.226040422005,
+   "tx_seq_est": 2866678.6040422004,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488608.591689833,
+   "wall": 1793653643.268184,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2867908,
+   "tx_t": 2092.525976090225,
+   "tx_seq_est": 2867908.5976090226,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488611.389148208,
+   "wall": 1793653646.065662,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2868188,
+   "label": "A",
+   "tx_t": 2095.3234825220397,
+   "tx_seq_est": 2868188.348252204,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488623.251040958,
+   "wall": 1793653657.9276319,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2869374,
+   "tx_t": 2107.185579044003,
+   "tx_seq_est": 2869374.5579044004,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488633.0832845,
+   "wall": 1793653667.759941,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2870357,
+   "label": "C",
+   "tx_t": 2117.017991491157,
+   "tx_seq_est": 2870357.7991491156,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488643.959432375,
+   "wall": 1793653678.636161,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2871445,
+   "tx_t": 2127.894326204144,
+   "tx_seq_est": 2871445.4326204145,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488646.058098833,
+   "wall": 1793653680.734841,
+   "kind": "trial_start",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2871655,
+   "label": "C",
+   "tx_t": 2129.9930287146713,
+   "tx_seq_est": 2871655.302871467,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488658.580725291,
+   "wall": 1793653693.2575512,
+   "kind": "trial_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2872907,
+   "tx_t": 2142.515870295131,
+   "tx_seq_est": 2872907.587029513,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 1488743.375839125,
+   "wall": 1793653778.043715,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2881387,
+   "tx_t": 2227.312440799132,
+   "tx_seq_est": 2881387.244079913,
+   "dir": "sessions/s01_laptopA"
+  },
+  {
+   "host_t": 829892.045346666,
+   "wall": 1793652323.306083,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem1101",
+    "/dev/cu.usbmodem101"
+   ],
+   "tx_t": 771.545675061112,
+   "tx_seq_est": 2735810.567506111,
+   "dir": "sessions/s01_laptopB"
+  },
+  {
+   "host_t": 829919.097845125,
+   "wall": 1793652350.358582,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2738515,
+   "tx_t": 798.600454007507,
+   "tx_seq_est": 2738516.045400751,
+   "dir": "sessions/s01_laptopB"
+  },
+  {
+   "host_t": 830114.842294583,
+   "wall": 1793652546.10303,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem1101",
+    "/dev/cu.usbmodem101"
+   ],
+   "tx_t": 994.3614044459708,
+   "tx_seq_est": 2758092.140444597,
+   "dir": "sessions/s01_laptopB"
+  },
+  {
+   "host_t": 830125.066186333,
+   "wall": 1793652556.326922,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2759113,
+   "tx_t": 1004.5861580555767,
+   "tx_seq_est": 2759114.6158055575,
+   "dir": "sessions/s01_laptopB"
+  },
+  {
+   "host_t": 830367.975894,
+   "wall": 1793652799.23663,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem1101",
+    "/dev/cu.usbmodem101"
+   ],
+   "tx_t": 1247.516342667766,
+   "tx_seq_est": 2783407.6342667765,
+   "dir": "sessions/s01_laptopB"
+  },
+  {
+   "host_t": 830907.052671041,
+   "wall": 1793653817.969023,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 2885279,
+   "tx_t": 1786.6385631192936,
+   "tx_seq_est": 2837319.8563119294,
+   "dir": "sessions/s01_laptopB"
+  }
+ ]
+}

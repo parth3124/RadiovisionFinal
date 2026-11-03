@@ -1,0 +1,46 @@
+{
+ "tx_boot": "616c1222",
+ "seq_first": 364082,
+ "seq_last": 398508,
+ "n_packets": 34427,
+ "rx_ids": [
+  3,
+  4
+ ],
+ "tx_rate_hz": 100.0,
+ "dir_fits": {
+  "sessions/rx3_rx4_test": {
+   "a": 1471062.434504798,
+   "b": 0.9999875892820441,
+   "latency_ms_p50": 0.7054610177874565,
+   "latency_ms_p95": 2.7215667068958265,
+   "drift_ppm": -12.410717955879669
+  }
+ },
+ "events": [
+  {
+   "host_t": 1471308.847264541,
+   "wall": 1793628851.789102,
+   "kind": "session_start",
+   "latest_tx_boot": null,
+   "latest_tx_seq": null,
+   "ports": [
+    "/dev/cu.usbmodem101",
+    "/dev/cu.usbmodem1101"
+   ],
+   "tx_t": 246.41581794038154,
+   "tx_seq_est": 388723.5817940382,
+   "dir": "sessions/rx3_rx4_test"
+  },
+  {
+   "host_t": 1471406.697443666,
+   "wall": 1793628949.63979,
+   "kind": "session_end",
+   "latest_tx_boot": 1634472482,
+   "latest_tx_seq": 398508,
+   "tx_t": 344.2672114712846,
+   "tx_seq_est": 398508.0,
+   "dir": "sessions/rx3_rx4_test"
+  }
+ ]
+}
